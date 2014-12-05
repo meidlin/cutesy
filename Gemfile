@@ -40,3 +40,14 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+#Add Factory Girl
+gem 'factory_girl_rails'
+
+group :development, :test do
+	#add rspec gem
+	gem 'rspec-rails', '~> 3.0.0'
+
+	#add validation association matchers
+	gem 'shoulda-matchers', require: false
+end
+
