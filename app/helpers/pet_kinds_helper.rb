@@ -1,0 +1,2 @@
+module PetKindsHelper
+end

@@ -1,0 +1,30 @@
+<%= form_for(@pet_kind) do |f| %>
+  <% if @pet_kind.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pet_kind.errors.count, "error") %> prohibited this pet_kind from being saved:</h2>
+
+      <ul>
+      <% @pet_kind.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+Dude the name of the phylum
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+<%= f.fields_for :breeds do |builder| %>
+  Here's another breed:<br />
+  Name: <%= builder.text_field :name %><br />
+  Trivia: <%= builder.text_field :trivia %><br />
+  <hr />
+<% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
