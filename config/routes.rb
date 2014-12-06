@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :pet_kinds
   resources :breeds
+  resources :pets
+  resources :images
 
   root 'application#index'
 
