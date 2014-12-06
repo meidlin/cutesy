@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141205031041) do
+ActiveRecord::Schema.define(version: 20141206013203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,21 @@ ActiveRecord::Schema.define(version: 20141205031041) do
   end
 
   add_index "breeds", ["pet_kind_id"], name: "index_breeds_on_pet_kind_id", using: :btree
+
+  create_table "images", force: true do |t|
+    t.string   "caption"
+    t.float    "lat"
+    t.float    "lng"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "pet_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "images", ["pet_id"], name: "index_images_on_pet_id", using: :btree
 
   create_table "pet_kinds", force: true do |t|
     t.string   "name"
@@ -61,6 +76,10 @@ ActiveRecord::Schema.define(version: 20141205031041) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "twitter_handle"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
