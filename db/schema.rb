@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141206013203) do
+ActiveRecord::Schema.define(version: 20141207045733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,17 @@ ActiveRecord::Schema.define(version: 20141206013203) do
     t.datetime "image_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "screen_name"
+    t.integer  "favourites_count"
+    t.integer  "followers_count"
+    t.integer  "friends_count"
+    t.integer  "statuses_count"
+    t.integer  "twitter_id"
+    t.string   "lang"
+    t.string   "name"
+    t.string   "profile_image_url"
+    t.string   "time_zone"
+    t.integer  "utc_offset"
   end
 
 end
