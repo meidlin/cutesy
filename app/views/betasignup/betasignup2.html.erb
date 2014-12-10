@@ -1,6 +1,43 @@
-(Optional) Provide an email, and we'll send you a link at 6:00am PST on December 18 to be one of the first participants on our new site!
+<!DOCTYPE html> 
+<style>
+	body{
+		background-color:grey;
+	}
+
+	.theTeam{
+		float:left;
+		display:block;
+	}
+	.theTeamimages{
+		height:200px;
+		width:200px;
+	}
+	h1{
+		color:white;
+	}
+</style>
+
+<body>
+<div class="container">
+
+<h1>Thanks for signing up to be a beta user!</h1>
+
+<div class="theTeam">
+
+
+<%= image_tag("mike.jpg", :alt => "mike image", :class => "theTeamimages") %>
+<%= image_tag("matt.JPG", :alt => "matt image", :class => "theTeamimages") %>
+<%= image_tag("lorin.jpg", :alt => "lorin image", :class => "theTeamimages") %>
+
+
+</div>
+
+Submit your email, and we'll send you a link at 6:00am PST on December 18 to be one of the first participants on our new site!
 	
 <%= form_for @user, url: betasignup2_path do |f| %>
 	<%= f.text_field :email %>
 	<%= f.submit %>
 <% end %>
+
+</div>
+</body>
