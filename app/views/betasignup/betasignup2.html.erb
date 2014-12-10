@@ -1,43 +1,132 @@
 <!DOCTYPE html> 
 <style>
-	body{
-		background-color:grey;
-	}
+html, body { 
+  background: url(../assets/kitty.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   font-weight: 300;
+}
 
-	.theTeam{
-		float:left;
-		display:block;
-	}
-	.theTeamimages{
-		height:200px;
-		width:200px;
-	}
-	h1{
-		color:white;
-	}
+img{
+	height: 200px;
+	width: 191px;
+	overflow: hidden;
+}
+
+.jumbotron {
+background: rgba(0, 0, 0, 0.8);
+color:white;
+}
+
 </style>
 
 <body>
 <div class="container">
+<!-- Jumbotron -->
+	<div class="jumbotron">
+	  <h1>Thank you for signing up!</h1>
+	  <p>You're one of 500 lucky pet lovers who will get to sign up for the Cutesy beta. We will launch on December 18th at 6:00am PST, but if you want us to send you just ONE email to let you know we've launched, send it our way! </p>
 
-<h1>Thanks for signing up to be a beta user!</h1>
+	  	<%= form_for @user, url: betasignup2_path do |f| %>
+		<%= f.text_field :email, {:class => "form-control add-todo", placeholder: "name@email.com"} %>
+		<%= f.submit "Enter", :class => "btn btn-primary btn-lg btn-block" %>
+		<% end %>
+	</div>
 
-<div class="theTeam">
+<!-- The Team -->
+
+	<div class="row">
+	  <div class="col-sm-6 col-md-4">
+	    <div class="thumbnail">
+	      <img src="../assets/mike.jpg">
+	      <div class="caption">
+	        <h3>Mike</h3>
+	        <p>"There is no psychiatrist in the world like a puppy licking your face."</p>
+	        <!-- Twitter Follow Button -->
+				<a class="twitter-follow-button"
+				  href="https://twitter.com/meidlin"
+				  data-show-count="false"
+				  data-size="large">
+				Follow @meidlin
+				</a>
+				<script type="text/javascript">
+				window.twttr = (function (d, s, id) {
+				  var t, js, fjs = d.getElementsByTagName(s)[0];
+				  if (d.getElementById(id)) return;
+				  js = d.createElement(s); js.id = id;
+				  js.src= "https://platform.twitter.com/widgets.js";
+				  fjs.parentNode.insertBefore(js, fjs);
+				  return window.twttr || (t = { _e: [], ready: function (f) { t._e.push(f) } });
+				}(document, "script", "twitter-wjs"));
+				</script>
+	      </div>
+	    </div>
+	  </div>
+	   <div class="col-sm-6 col-md-4">
+	    <div class="thumbnail">
+	      <img src="../assets/matt.JPG" alt="...">
+	      <div class="caption">
+	        <h3>Matt</h3>
+	        <p>"Who let the dogs out? ...But no really where are my dogs?"</p>
+	        <!-- Twitter Follow Button -->
+				<a class="twitter-follow-button"
+				  href="https://twitter.com/mjahlberg"
+				  data-show-count="false"
+				  data-size="large">
+				Follow @mjahlberg
+				</a>
+				<script type="text/javascript">
+				window.twttr = (function (d, s, id) {
+				  var t, js, fjs = d.getElementsByTagName(s)[0];
+				  if (d.getElementById(id)) return;
+				  js = d.createElement(s); js.id = id;
+				  js.src= "https://platform.twitter.com/widgets.js";
+				  fjs.parentNode.insertBefore(js, fjs);
+				  return window.twttr || (t = { _e: [], ready: function (f) { t._e.push(f) } });
+				}(document, "script", "twitter-wjs"));
+				</script>
+	      </div>
+	    </div>
+	  </div>
+	   <div class="col-sm-6 col-md-4">
+	    <div class="thumbnail">
+	      <img src="../assets/lorin.jpg" alt="...">
+	      <div class="caption">
+	        <h3>Lorin</h3>
+	        <p>"The simplest and best outlook on life is through a dog's eyes."</p>
+	        <!-- Twitter Follow Button -->
+				<a class="twitter-follow-button"
+				  href="https://twitter.com/meidlin"
+				  data-show-count="false"
+				  data-size="large">
+				Follow @LorinT
+				</a>
+				<script type="text/javascript">
+				window.twttr = (function (d, s, id) {
+				  var t, js, fjs = d.getElementsByTagName(s)[0];
+				  if (d.getElementById(id)) return;
+				  js = d.createElement(s); js.id = id;
+				  js.src= "https://platform.twitter.com/widgets.js";
+				  fjs.parentNode.insertBefore(js, fjs);
+				  return window.twttr || (t = { _e: [], ready: function (f) { t._e.push(f) } });
+				}(document, "script", "twitter-wjs"));
+				</script>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	
 
 
+<!-- 
 <%= image_tag("mike.jpg", :alt => "mike image", :class => "theTeamimages") %>
 <%= image_tag("matt.JPG", :alt => "matt image", :class => "theTeamimages") %>
 <%= image_tag("lorin.jpg", :alt => "lorin image", :class => "theTeamimages") %>
+ -->
+ </div>
 
-
-</div>
-
-Submit your email, and we'll send you a link at 6:00am PST on December 18 to be one of the first participants on our new site!
-	
-<%= form_for @user, url: betasignup2_path do |f| %>
-	<%= f.text_field :email %>
-	<%= f.submit %>
-<% end %>
-
-</div>
 </body>
