@@ -8,6 +8,11 @@
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 
 	<%= javascript_include_tag 'application' %>
+	<!-- To ensure proper rendering and touch zooming, add the viewport meta tag -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Disables zooming, making app feel more native-like -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 </head>
 <body ng-app="spaApp">
@@ -16,9 +21,9 @@
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
-		<a ui-sref="feed">Feed</a>
-		<a ui-sref="profile">Profile </a>
-		<a ui-sref="leaderboard"> Leaderboard</a>
+		<a ui-sref="feed" class=".col-md-4">Feed</a>
+		<a ui-sref="profile" class=".col-md-4">Profile </a>
+		<a ui-sref="leaderboard" class=".col-md-4"> Leaderboard</a>
 		<%= link_to "Sign in with Twitter", "/auth/twitter" %>
     </div>
   </div>
