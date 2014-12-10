@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :pets
   resources :images
 
-  root 'application#index'
+  root 'betasignup#betasignup'
 
   get 'auth/twitter/callback', to: 'sessions#create'
 
