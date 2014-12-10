@@ -1,1 +1,136 @@
-<button type="button" class="btn btn-primary">Sign in</button>
+<style type="text/css">
+.twitterhandle{
+	border: 1px solid black;
+	width:440px;
+	text-align: center;
+}
+
+.imageofuser{
+	height:440px;
+	width:440px;
+}
+
+.nameofpetname{
+	font-size: 24px;
+}
+
+.wrapper{
+	width: 100%;
+	clear:both;
+}
+
+.descedit{
+	height: 100px;
+	float:left;
+}
+
+.description{
+	max-width:360px;
+	border: 1px solid grey;
+	float:left;
+}
+
+.edit{
+	height: 55px;
+	width: 80px;
+	float:left;
+}
+
+.petsofuser{
+	width:440px;
+	float:left;
+	border: 1px solid grey;
+}
+
+.pet1{
+	background-image:url("http://www.pet360.com/Content/Images/Cms/GermanShepherd.jpg");
+	background-position:center;
+	width: 440px;
+	height: 200px;
+}
+
+.pet2{
+	background-image:url("http://40.media.tumblr.com/tumblr_li81cskvhb1qi5hjlo1_1280.jpg");
+	background-position:center;
+	width: 440px;
+	height: 200px;
+}
+
+.petname{
+	width:100px;
+	height:50px;
+	background-color: rgba(0,0,0,0.4);
+	margin-left: 150px;
+	color:white;
+}
+.petratingandviews{
+	text-align:center;
+	color:white;
+	margin-top:100px;
+}
+
+</style>
+
+<body>
+<div class="wrapper">
+	<!-- Name of Pet -->
+	<div class="twitterhandle">
+		<p class="nameofpetname">@SamGrimes</p>
+	</div>
+	<!-- Image of pet -->
+	<div class="imageofuser">
+		<img src="https://media.licdn.com/media/p/3/000/1c4/3d4/1de7217.jpg" alt="..." class="img-rounded imageofuser">
+	</div>
+
+	<!-- Description of User -->
+	<div class="descedit">
+		<div class="description">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget dui tellus. Ut lacinia pulvinar est at vestibulum. Praesent id volutpat.</p>
+		</div>
+		<!-- Edit button only if looking at your own profile -->
+		<div class="edit">
+			<button type="button" class="btn btn-default edit"><h3>Edit</h3></button>
+		</div>
+	</div>
+
+	<!-- Pets Section -->
+	<div class="petsofuser">
+		<div class="pet1">
+			<div class="petname">
+				<h2>JoJo</h2>
+			</div>
+
+			<div class="petratingandviews">
+				<div class="petrating">
+					16,256 views
+				</div>
+				<div class="petviews">
+					Average 4.37 stars
+				</div>
+
+			</div>
+		</div>
+
+		<div class="pet2">
+			<div class="petname">
+				<h2>Darla</h2>
+			</div>
+
+			<div class="petratingandviews">
+				<div class="petrating">
+					14,256 views
+				</div>
+				<div class="petviews">
+					Average 3.87 stars
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+</div>
+
+</body>
