@@ -12,7 +12,8 @@
       "angular": "latest",
       "angular-ui-router": "latest",
       "angular-bootstrap": "latest",
-      "bootstrap-sass-official": "latest"
+      "bootstrap-sass-official": "latest",
+      "bootstrap-social": "latest" 
     }
   }
 }
