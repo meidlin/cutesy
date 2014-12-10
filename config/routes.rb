@@ -8,9 +8,11 @@ Rails.application.routes.draw do
 
   get 'auth/twitter/callback', to: 'sessions#create'
 
-
-
-  
+  get 'betasignup' => 'betasignup#betasignup'
+  get 'betasignup/2' => 'betasignup#betasignup2', as: :betasignup2
+  put 'betasignup/2' => 'betasignup#update'
+  patch 'betasignup/2' => 'betasignup#update'
+  get 'betasignup/3' => 'betasignup#betasignup3', as: :betasignup3
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

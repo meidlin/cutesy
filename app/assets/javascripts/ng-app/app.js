@@ -19,6 +19,12 @@ $urlRouterProvider.otherwise('/');
      	controller: 'profileController'
      })
 
+     .state('betasignup', {
+     	url: '/betasignup',
+     	templateUrl: 'betasignup.html',
+     	controller: 'betasignupController'
+     })
+
      .state('leaderboard', {
      	url: '/leaderboard',
      	templateUrl: 'leaderboard.html',
