@@ -36,6 +36,29 @@ class SessionsController < ApplicationController
 			)
 		end
     	session[:user_id] = user.id
-    	redirect_to root_url, :notice => "Signed in!"
+    	# This is only active while we're getting beta users
+    	redirect_to betasignup2_path, :notice => "Signed in!"
+#    	redirect_to root_path, :notice => "Signed in!"
 	end 
+
+	def index
+		users = User.all
+	end
+
+	def edit
+		user = User.find(params[:id])
+	end
+
+	def update
+		user = User.find(params[:id])
+		user.update_attributes(user_params)
+		render nothing: true, status: 204
+	end
+
+	def user_params
+		params.require(:user).permit(:description)
+	end
+
+
+
 end
