@@ -13,24 +13,20 @@
 
 	<!-- Disables zooming, making app feel more native-like -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
+<!-- <%= link_to "Sign in with Twitter", "/auth/twitter" %> -->
 </head>
-<body ng-app="spaApp">
+<body ng-app="spaApp" style="background-image:url('../assets/background.jpg'); background-size:cover;">
 <div class="container-fluid">
 
 	<!-- Navbar -->
-	<nav class="navbar navbar-default" role="navigation">
+	<!-- <nav class="navbar navbar-default" role="navigation"> -->
 	  <div class="container-fluid">
-	    <div class="navbar-header">
-	    	<div class="makemethirds col-md-4">
-				<a ui-sref="feed"><button type="button" class="btn btn-default navbar-btn">Feed</button></a>
-				<a ui-sref="profile"><button type="button" class="btn btn-default navbar-btn">Profile</button> </a>
-				<a ui-sref="leaderboard"><button type="button" class="btn btn-default navbar-btn">Leaderboard</button> </a>
-			</div>
-			<%= link_to "Sign in with Twitter", "/auth/twitter" %>
-	    </div>
+				<a ui-sref="feed"><button type="button" class="col-xs-4 col-sm-4 col-md-4 btn btn-default navbar-btn">Feed</button></a>
+				<a ui-sref="profile"><button type="button" class="col-xs-4 col-sm-4 col-md-4 btn btn-default navbar-btn">Profile</button> </a>
+				<a ui-sref="leaderboard"><button type="button" class="col-xs-4 col-sm-4 col-md-4 btn btn-default navbar-btn">Leaderboard</button> </a>
+			
 	  </div>
-	</nav>
+	<!-- </nav> -->
 	
 			
 	<%= yield %>
