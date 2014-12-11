@@ -16,23 +16,26 @@
 
 </head>
 <body ng-app="spaApp">
+<div class="container-fluid">
 
-<!-- Navbar -->
-<!-- <nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <div class="navbar-header">
-		<a ui-sref="feed" class=".col-md-4">Feed</a>
-		<a ui-sref="profile" class=".col-md-4">Profile </a>
-		<a ui-sref="leaderboard" class=".col-md-4"> Leaderboard</a>
-		<a ui-sref="betasignup" class=".col-md-4"> Beta Signup </a>
-		<%= link_to "Sign in with Twitter", "/auth/twitter" %>
-    </div>
-  </div>
-</nav> -->
-		
-<%= yield %>
+	<!-- Navbar -->
+	<nav class="navbar navbar-default" role="navigation">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	    	<div class="makemethirds col-md-4">
+				<a ui-sref="feed"><button type="button" class="btn btn-default navbar-btn">Feed</button></a>
+				<a ui-sref="profile"><button type="button" class="btn btn-default navbar-btn">Profile</button> </a>
+				<a ui-sref="leaderboard"><button type="button" class="btn btn-default navbar-btn">Leaderboard</button> </a>
+			</div>
+			<%= link_to "Sign in with Twitter", "/auth/twitter" %>
+	    </div>
+	  </div>
+	</nav>
+	
+			
+	<%= yield %>
 
 
-
+	</div>
 </body>
 </html>
