@@ -48,21 +48,43 @@ $stateProvider
    api.getUsers()
    .then(function(data){
     $scope.users = data.data;
+    console.log($scope.users);
    });
 
    $scope.handle = "@handle_test";
    $scope.mikeimage = "https://pbs.twimg.com/profile_images/3576116985/392f2c900b7737a2bb82b8ef86251305.jpeg";
-
+   $scope.descript = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vestibulum mi ut turpis fringilla, id ultrices risus blandit. Proin ut volutpat."
 })
 
-.controller('leaderboard', function($scope, api){
-  api.getPets()
+.controller('feedController', function($scope, petsapi){
+  petsapi.getPets()
   .then(function(data){
     $scope.pets = data.data;
   });
-  $scope.petz = ["hi", "there", "matt"];
+  $scope.test = 'darla test works';
+})
 
-  $scope.test = "test test test";
+// .controller('leaderboard', function($scope, api){
+//   api.getPets()
+//   .then(function(data){
+//     $scope.pets = data.data;
+//   });
+//   $scope.petz = ["hi", "there", "matt"];
+
+//   $scope.test = "test test test";
+// })
+
+.service('petsapi', function($http) {
+  return {
+    getPets: function(){
+
+      var promise = $http.get('/petsapi/pets')
+      .then(function(response){
+        return response
+      });
+      return promise;
+    }
+  }
 })
 
 .service('api', function($http) {

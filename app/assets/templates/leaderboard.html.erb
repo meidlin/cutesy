@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <style type="text/css">
 .title{
 	text-align:center;
 }
 </style>
-<body>
-<div ng-app="spaApp" ng-controller="leaderboardController">
+
+
     <h1 class="title">Leaderboard</h1>
         <div class="container">
         <table class="table table-striped">
@@ -21,13 +18,14 @@
                 </tr>
             </thead>
           <tbody>
-            <tr ng-repeat="x in petz" >
-                <td>1</td>
-                <td>{{x}}</td>
-                <td>{{x.name}}</td>
-                <td>{{User.screen_name}}</td>
-                <td>{{x.beysian_rating}}</td>
-            </tr>
+            <div ng-controller="feedController">
+                <tr ng-repeat="x in pets" >
+                    <td>1</td>
+                    <td>{{x}}</td>
+                    <td>{{x.name}}</td>
+                    <td>{{User.screen_name}}</td>
+                    <td>{{x.beysian_rating}}</td>
+                </tr>
           </tbody>
         </table>
         </div>

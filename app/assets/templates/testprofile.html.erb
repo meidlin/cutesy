@@ -1,6 +1,3 @@
-<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.1/jquery.min.js"></script>
-
 <style> 
 
 /*User Profile*/
@@ -51,28 +48,27 @@
   
   <div class="col-md-3 col-sm-3"></div> 
     <div class="thumbnail col-md-6 col-sm-6" style="padding: 0">   
-        <div class="profile-user" style>
+        <div ng-repeat="user in users" class="profile-user" style>
           <div class="row-fluid">
           <!-- Image and Handle  -->
-              <img src="{{mikeimage}}" class="img-polaroid" style="height:200px; width:200px;"/>
-              <h2 style="position:relative">{{handle}}</h2>
-      </div>
+              <img src="{{user.profile_image_url}}" class="img-polaroid" style="height:200px; width:200px;"/>
+              <h2 style="position:relative">{{user.screen_name}}</h2>
+          </div>
       <!-- Description Panel -->
       <div class="panel panel-default">
         <div class="panel-body">
-            <p style="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vestibulum mi ut turpis fringilla, id ultrices risus blandit. Proin ut volutpat.</p>
+            {{descript}}
         </div>
       </div>
       <h2 style="text-align:center">Pets</h2>
       <hr >
 
-      <div class="panel panel-default">
+      <div ng-controller="feedController" class="panel panel-default">
         <div class="panel-body">
-          <div class="pet1">
+          <div ng-repeat="pet in pets" class="pet1">
             <div class="petname">
-              <h2>JoJo</h2>
+              <h2>{{pet.name}}</h2>
             </div>
-
             <div class="petratingandviews">
               <div class="petrating">
                 16,256 views
@@ -80,24 +76,8 @@
               <div class="petviews">
                 Average 4.37 stars
               </div>
-
             </div>
-          </div>
-          <div class="pet2">
-            <div class="petname">
-              <h2>Darla</h2>
-            </div>
-
-            <div class="petratingandviews">
-              <div class="petrating">
-                14,256 views
-              </div>
-              <div class="petviews">
-                Average 3.87 stars
-              </div>
-
-            </div>
-          </div>  
+          </div> 
         </div>
       </div>
     </div>
