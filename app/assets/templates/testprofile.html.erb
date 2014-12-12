@@ -46,22 +46,21 @@
 }
 
 </style>
-<body>   
-<div class="container">
+<body ng-app="spaApp">   
+<div ng-controller="testprofileController" class="container">
+  
   <div class="col-md-3 col-sm-3"></div> 
     <div class="thumbnail col-md-6 col-sm-6" style="padding: 0">   
         <div class="profile-user" style>
           <div class="row-fluid">
-        <div class="span6">
-          <div class="pull-left" style="margin-right:15px">
-              <img src="http://www.gravatar.com/avatar/f6112e781842d6a2b4636b35451401ff?s=80&d=mm&r=g" class="img-polaroid"/>
-          </div>
-          <h2 style="padding-top:20px;">@TwitterHandle</h2>
-        </div>
+          <!-- Image and Handle  -->
+              <img src="{{mikeimage}}" class="img-polaroid" style="height:200px; width:200px;"/>
+              <h2 style="position:relative">{{handle}}</h2>
       </div>
+      <!-- Description Panel -->
       <div class="panel panel-default">
         <div class="panel-body">
-            <p style="font-size:20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vestibulum mi ut turpis fringilla, id ultrices risus blandit. Proin ut volutpat.</p>
+            <p style="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vestibulum mi ut turpis fringilla, id ultrices risus blandit. Proin ut volutpat.</p>
         </div>
       </div>
       <h2 style="text-align:center">Pets</h2>
@@ -104,6 +103,7 @@
     </div>
   </div>  
 </div>
+
 
 <div class="col-md-3 col-sm-3"></div>
 </body>

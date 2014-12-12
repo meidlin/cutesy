@@ -44,11 +44,15 @@ $stateProvider
 
 })
 
-.controller('testfeedController', function($scope, api){
+.controller('testprofileController', function($scope, api){
    api.getUsers()
    .then(function(data){
     $scope.users = data.data;
    });
+
+   $scope.handle = "@handle_test";
+   $scope.mikeimage = "https://pbs.twimg.com/profile_images/3576116985/392f2c900b7737a2bb82b8ef86251305.jpeg";
+
 })
 
 .service('api', function($http) {
