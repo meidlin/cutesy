@@ -5,6 +5,7 @@ class PetsController < ApplicationController
   # GET /pets.json
   def index
     @pets = Pet.all
+    render json: pets, status: 200
   end
 
   # GET /pets/1

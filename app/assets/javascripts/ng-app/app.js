@@ -55,6 +55,16 @@ $stateProvider
 
 })
 
+.controller('leaderboard', function($scope, api){
+  api.getPets()
+  .then(function(data){
+    $scope.pets = data.data;
+  });
+  $scope.petz = ["hi", "there", "matt"];
+
+  $scope.test = "test test test";
+})
+
 .service('api', function($http) {
 	return {
 		getUsers: function(){
