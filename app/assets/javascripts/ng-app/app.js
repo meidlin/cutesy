@@ -2,10 +2,9 @@ angular.module('spaApp', ['ui.router', 'templates'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
-
 $urlRouterProvider.otherwise('/');
 
-	$stateProvider
+$stateProvider
 
      .state('feed', {
           url: '/feed',
@@ -14,49 +13,53 @@ $urlRouterProvider.otherwise('/');
      })
 
      .state('profile', {
-     	url: '/profile',
-     	templateUrl: 'profile.html',
-     	controller: 'profileController'
+         	url: '/profile',
+         	templateUrl: 'profile.html',
+         	controller: 'profileController'
      })
 
      .state('betasignup', {
-     	url: '/betasignup',
-     	templateUrl: 'betasignup.html',
-     	controller: 'betasignupController'
+         	url: '/betasignup',
+         	templateUrl: 'betasignup.html',
+         	controller: 'betasignupController'
+     })
+
+     .state('testfeed', {
+          url: '/testfeed',
+          templateUrl: 'testfeed.html',
+          controller: 'testfeedController'
      })
 
      .state('testprofile', {
           url: '/testprofile',
           templateUrl: 'testprofile.html',
-          controller: 'testprofile'
-
+          controller: 'testprofileController'
      })
 
      .state('leaderboard', {
-     	url: '/leaderboard',
-     	templateUrl: 'leaderboard.html',
-     	controller: 'leaderboardController'
+         	url: '/leaderboard',
+         	templateUrl: 'leaderboard.html',
+         	controller: 'leaderboardController'
      });
 
 })
 
-	.controller('homeController', function($scope){
+.controller('testfeedController', function($scope, api){
+   api.getUsers()
+   .then(function(data){
+    $scope.users = data.data;
+   });
+})
 
-		api.getPlanets()
-		.then(function(data){
-			$scope.data = data.data;
-		});
-
-	})
-.service('api', function($http){
+.service('api', function($http) {
 	return {
-		getPlanets: function(){
+		getUsers: function(){
 
-			var promise = $http.get('/api/planets')
+			var promise = $http.get('/api/sessions')
 			.then(function(response){
-				return response;
+				return response
 			});
 			return promise;
 		}
-	};
+	}
 });

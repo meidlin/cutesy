@@ -1,105 +1,109 @@
-<html>
-  <head>
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.1/jquery.min.js"></script>
 
-    <style>
-    td-cards {
-  display: block;
-}
+<style> 
 
-td-card {
-  position: absolute;
-  left: 50%;
-  margin-top: 80px;
-  margin-bottom: 40px;
-  margin-left: -125px;
-  width: 250px;
-  height: 200px;
-
-  border: 1px solid #999;
-  box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 6px;
-}
-/*
-td-card.card-0 {
-  -webkit-transform: translate3d(0, 0px, 0);
-  transform: translate3d(0, 0px, 0);
-  top: 0px;
-  z-index: 10;
-}
-td-card.card-1 {
-  -webkit-transform: translate3d(0, 4px, 0);
-  transform: translate3d(0, 4px, 0);
-  z-index: 9;
-}
-td-card.card-2 {
-  -webkit-transform: translate3d(0, 8px, 0);
-  transform: translate3d(0, 8px, 0);
-  z-index: 8;
-}
-*/
-
-td-card .image {
+/*User Profile*/
+    
+.profile-user {
   position: relative;
+  max-width: 964px;
+  min-height: 75px;
+  margin: 0 auto;
+  padding: 10px 2px;
+  border-bottom: 1px solid #d9d9d9;
+  background: #eeeeee url("//d36xtkk24g8jdx.cloudfront.net/bluebar/dd6cb37/images/bg/white-gradient-200px.png") repeat-x 50% 50%;
+  -webkit-box-shadow: 1px 0 0 rgba(0, 0, 0, 0.05), -1px 0 0 rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 1px 0 0 rgba(0, 0, 0, 0.05), -1px 0 0 rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 1px 0 0 rgba(0, 0, 0, 0.05), -1px 0 0 rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-td-card img {
-  max-width: 100%;
-  border-radius: 6px;
+/*User Pets*/
+
+.pet1{
+  background-image:url("http://www.pet360.com/Content/Images/Cms/GermanShepherd.jpg");
+  background-position:center;
+  width: 100%;
 }
 
-.yes-text {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 30px;
-  color: rgb(111, 250, 111);
-  opacity: 0;
-}
-.no-text {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 30px;
-  color: rgb(255, 115, 115);
-  opacity: 0;
+.pet2{
+  background-image:url("http://40.media.tumblr.com/tumblr_li81cskvhb1qi5hjlo1_1280.jpg");
+  background-position:center;
+  width: 100%;
 }
 
-.fade {
-  -webkit-transition: 0.2s opacity linear;
-  transition: 0.2s opacity linear;
-  opacity: 0;
+.petname{
+  text-align:center;
+  background-color: rgba(0,0,0,0.4);
+  margin:auto auto;
+  color:white;
+}
+.petratingandviews{
+  text-align:center;
+  font-size:20px;
+  color:white;
+  margin-top:100px;
 }
 
 </style>
-       <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    
-    <link rel="stylesheet" href="http://code.ionicframework.com/contrib/ionic-contrib-tinder-cards/ionic.tdcards.css">
-    
-    <title>Ionic Swipe Down</title>
-
-    <link href="//code.ionicframework.com/1.0.0-beta.13/css/ionic.css" rel="stylesheet">
-    
-    <script src="http://code.ionicframework.com/collide/0.0.4/collide.js"></script>
-    
-    <script src="//code.ionicframework.com/1.0.0-beta.13/js/ionic.bundle.js"></script>
-    <script src="http://code.ionicframework.com/contrib/ionic-contrib-tinder-cards/ionic.tdcards.js"></script>
-  </head>
-<body ng-app="starter" no-scroll>
-    <ion-pane ng-controller="CardsCtrl">
-      <ion-header-bar class="bar-default">
-        <h1 class="title">TD Cards</h1>
-      </ion-header-bar>
-
-      <td-cards>
-        <td-card ng-repeat="card in cards" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)" class="card-{{card.index}}" ng-controller="CardCtrl">
-          <div class="image">
-            <div class="yes-text" ng-style="leftTextOpacity">LIKE</div>
-            <img ng-src="{{card.image}}">
-            <div class="no-text" ng-style="rightTextOpacity">NOPE</div>
+<body>   
+<div class="container">
+  <div class="col-md-3 col-sm-3"></div> 
+    <div class="thumbnail col-md-6 col-sm-6" style="padding: 0">   
+        <div class="profile-user" style>
+          <div class="row-fluid">
+        <div class="span6">
+          <div class="pull-left" style="margin-right:15px">
+              <img src="http://www.gravatar.com/avatar/f6112e781842d6a2b4636b35451401ff?s=80&d=mm&r=g" class="img-polaroid"/>
           </div>
-        </td-card>
-      </td-cards>
-    </ion-pane>
-  </body>
-</html>
+          <h2 style="padding-top:20px;">@TwitterHandle</h2>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-body">
+            <p style="font-size:20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vestibulum mi ut turpis fringilla, id ultrices risus blandit. Proin ut volutpat.</p>
+        </div>
+      </div>
+      <h2 style="text-align:center">Pets</h2>
+      <hr >
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="pet1">
+            <div class="petname">
+              <h2>JoJo</h2>
+            </div>
+
+            <div class="petratingandviews">
+              <div class="petrating">
+                16,256 views
+              </div>
+              <div class="petviews">
+                Average 4.37 stars
+              </div>
+
+            </div>
+          </div>
+          <div class="pet2">
+            <div class="petname">
+              <h2>Darla</h2>
+            </div>
+
+            <div class="petratingandviews">
+              <div class="petrating">
+                14,256 views
+              </div>
+              <div class="petviews">
+                Average 3.87 stars
+              </div>
+
+            </div>
+          </div>  
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
+
+<div class="col-md-3 col-sm-3"></div>
+</body>
