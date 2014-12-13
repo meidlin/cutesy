@@ -13,6 +13,11 @@ class PetsController < ApplicationController
   def show
   end
 
+  def leader
+    @pets = Pet.all
+  end
+  
+
   # GET /pets/new
   def new
     @pet = Pet.new

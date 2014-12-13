@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :pets
   resources :images
 
+  get 'pets/leader/1' => 'pets#leader'
+
 
   root 'application#index'
 

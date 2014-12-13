@@ -1,0 +1,31 @@
+<body style="background-image:url('../assets/background.jpg'); background-size:cover;">
+<div class="col-md-3 col-sm-3"></div>
+    <div class="container col-md-6">
+    <table class="table table-striped ">
+    	<thead>
+            <tr>
+                <th>Rank</th>
+                <th>Pet</th>
+                <th>Name</th>
+                <th>Owner</th>
+                <th>Average Rating</th>
+                <th></th>
+            </tr>
+        </thead>
+      <tbody>
+        <%= @pets.each do |p| %>
+            <tr>
+                <td>#</td>
+                <td><%= p %> p.image </td>
+                <td><%= p.name %> </td>
+                <td>p.user_id<%= p.user_id %></td>
+                <td>p.bAvgRating</td>
+            </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+</div>
+<div class="col-md-3 col-sm-3"></div>
+</body>
+</html>
