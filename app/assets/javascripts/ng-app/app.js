@@ -36,6 +36,18 @@ $stateProvider
           controller: 'testprofileController'
      })
 
+     .state('editprof', {
+          url: '/editprof',
+          templateUrl: 'editprof.html',
+          controller: 'testprofileController'
+     })
+
+     .state('createpet', {
+          url: '/createpet',
+          templateUrl: 'createpet.html',
+          controller: 'createpetController'
+     })
+
      .state('leaderboard', {
          	url: '/leaderboard',
          	templateUrl: 'leaderboard.html',

@@ -24,9 +24,16 @@
 }
 
 .pet2{
-  background-image:url("http://40.media.tumblr.com/tumblr_li81cskvhb1qi5hjlo1_1280.jpg");
+  background-image:url("http://www.iconsdb.com/icons/preview/gray/plus-5-xxl.png");
   background-position:center;
+  background-size:40%;
+  background-repeat:no-repeat;
   width: 100%;
+  border:1px solid grey;
+}
+
+.panel-body {
+  
 }
 
 .petname{
@@ -43,30 +50,29 @@
 }
 
 </style>   
-<div ng-controller="testprofileController" class="container">
-  
-  <div class="col-md-3 col-sm-3"></div> 
+
+<div class="col-md-3 col-sm-3"></div> 
     <div class="thumbnail col-md-6 col-sm-6" style="padding: 0">   
-        <div ng-repeat="user in users" class="profile-user" style>
+        <div class="profile-user" style>
           <div class="row-fluid">
           <!-- Image and Handle  -->
               <img src="{{user.profile_image_url}}" class="img-polaroid" style="height:200px; width:200px;"/>
-              <h2 style="position:relative">{{user.screen_name}}</h2>
+              <h2 style="position:relative">{{handle}}</h2>
           </div>
       <!-- Description Panel -->
       <div class="panel panel-default">
         <div class="panel-body">
-            {{descript}}
+            Add a 140 character description about yourself!
         </div>
       </div>
       <h2 style="text-align:center">Pets</h2>
       <hr >
-
-      <div ng-controller="feedController" class="panel panel-default">
+      <!-- Pet section -->
+      <div class="panel panel-default">
         <div class="panel-body">
-          <div ng-repeat="pet in pets" class="pet1">
+          <div class="pet1">
             <div class="petname">
-              <h2>{{pet.name}}</h2>
+              <h2>jojo</h2>
             </div>
             <div class="petratingandviews">
               <div class="petrating">
@@ -78,6 +84,20 @@
             </div>
           </div> 
         </div>
+      </div>
+
+      <!-- Add Pet -->
+      <div class="panel panel-default">
+        <div class="panel-body" style="">
+          <div class="pet2" style="height: 189px; border: 1 px solid grey">
+            <div class="petname">
+              <h2></h2>
+            </div>
+          </div>
+          </div> 
+        </div>
+        <!-- Enter Button -->
+        <button type="button" class="btn btn-primary btn-lg btn-block">Enter</button>
       </div>
     </div>
   </div>  
