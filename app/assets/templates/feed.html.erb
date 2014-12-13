@@ -15,7 +15,7 @@ span:hover:before {
 
 <div ng-controller="feedController">{{test}}
   <div ng-repeat="pet in pets"> 
-    <div class="container">
+    <div ng-if="pets_index == $index" class="container">
         <div class="row">
         	<div class="col-md-3 col-sm-3"></div>
               <div class="thumbnail  col-md-6 col-sm-6" style="padding: 0">
@@ -76,7 +76,7 @@ span:hover:before {
                       <p style="margin:0">Rate me</p>
                     </div>
                     <!-- Actual stars -->
-                      <div style="width: 200px; margin: 0px auto; margin-top:50px">
+                      <div style="width: 200px; margin: 0px auto; ">
                        <big> <span class="star">&#9734;<span class="star">&#9734;<span class="star">&#9734;<span class="star">&#9734;<span class="star">&#9734;</span></span></span></span></span></big>
                       </div>
                   </div>
@@ -85,7 +85,7 @@ span:hover:before {
                 <div class="panel panel-default" style="margin-bottom:0px">
                   <div class="panel-body" style="padding:0px;">
                     <button type="button" class="btn btn-danger btn-lg col-md-6 col-sm-6 col-xs-6" style="">Skip</button>
-                    <button type="button" class="btn btn-success btn-lg col-md-6 col-sm-6 col-xs-6">Rate!</button>
+                    <button ng-click="next()" type="button" class="btn btn-success btn-lg col-md-6 col-sm-6 col-xs-6">Rate!</button>
                   </div>
                 </div>
 

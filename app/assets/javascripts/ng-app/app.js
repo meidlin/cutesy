@@ -71,9 +71,29 @@ $stateProvider
 .controller('feedController', function($scope, petsapi){
   petsapi.getPets()
   .then(function(data){
+    $scope.pets = [data.data];
     $scope.pets = data.data;
+    // From here, we experiment
+
   });
-  $scope.test = 'darla test works';
+// Code to make ng-repeat show one at a time
+  $scope.pets_index = 0;
+  $scope.pets = {};
+
+  $scope.next = function(){
+    if ($scope.pets_index >= $scope.pets.length -1) {
+      $scope.pets_index = 0;
+    }
+    else {
+      $scope.pets_index ++;
+    }
+  };
+
+  $scope.choose = function(pets) {
+    $scope.pets = pets;
+  }
+// Test var
+  // $scope.test = 'darla test works';
 })
 
 // .controller('leaderboard', function($scope, api){
