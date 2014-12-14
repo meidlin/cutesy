@@ -46,6 +46,10 @@ class SessionsController < ApplicationController
 		render json: users, status: 200
 	end
 
+	def show
+	end
+
+
 	def edit
 		user = User.find(params[:id])
 	end
