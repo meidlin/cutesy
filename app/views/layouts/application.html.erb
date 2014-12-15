@@ -13,26 +13,27 @@
 
 	<!-- Disables zooming, making app feel more native-like -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
+<!-- <%= link_to "Sign in with Twitter", "/auth/twitter" %> -->
 </head>
-<body ng-app="spaApp">
+<body ng-app="spaApp" style="background-image:url('../assets/background.jpg'); background-size:cover;">
+<div class="container-fluid">
 
-<!-- Navbar -->
-<!-- <nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <div class="navbar-header">
-		<a ui-sref="feed" class=".col-md-4">Feed</a>
-		<a ui-sref="profile" class=".col-md-4">Profile </a>
-		<a ui-sref="leaderboard" class=".col-md-4"> Leaderboard</a>
-		<a ui-sref="betasignup" class=".col-md-4"> Beta Signup </a>
-		<%= link_to "Sign in with Twitter", "/auth/twitter" %>
-    </div>
-  </div>
-</nav> -->
-		
-<%= yield %>
+	<!-- Navbar -->
+	<!-- <nav class="navbar navbar-default" role="navigation"> -->
+	  <div class="container-fluid" ng-controller="navController">
+				<a ui-sref="feed"><button type="button" class="col-xs-4 col-sm-4 col-md-4 btn btn-default navbar-btn">Feed</button></a>
+				<!-- <a ui-sref="profile"><button type="button" class="col-xs-4 col-sm-4 col-md-4 btn btn-default navbar-btn">Profile</button> </a>				 -->
+				<button type="button" class="col-xs-4 col-sm-4 col-md-4 btn btn-default navbar-btn" ng-click="getUrlProfile()">Profile</button>
+
+				<a ui-sref="leaderboard"><button type="button" class="col-xs-4 col-sm-4 col-md-4 btn btn-default navbar-btn">Leaderboard</button> </a>
+			
+	  </div>
+	<!-- </nav> -->
+	
+			
+	<%= yield %>
 
 
-
+	</div>
 </body>
 </html>

@@ -4,13 +4,24 @@ class PetsController < ApplicationController
   # GET /pets
   # GET /pets.json
   def index
-    @pets = Pet.all
+    pets = Pet.all
+    # @users= Pet.user.all
+    render json: pets, status: 200
   end
 
   # GET /pets/1
   # GET /pets/1.json
   def show
   end
+
+  def leader
+    @pets = Pet.all
+  end
+
+  def post
+    
+  end
+  
 
   # GET /pets/new
   def new
@@ -26,8 +37,13 @@ class PetsController < ApplicationController
   def create
     @pet = Pet.new(pet_params)
 
+    # This assigns pet to user
+    @current_user = current_user
+    @current_user.pets << @pet
+    
+
     respond_to do |format|
-      if @pet.save
+      if @current_user.save
         format.html { redirect_to @pet, notice: 'Pet was successfully created.' }
         format.json { render :show, status: :created, location: @pet }
       else
@@ -69,6 +85,6 @@ class PetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pet_params
-      params.require(:pet).permit(:age, :name, :sex, :description)
+      params.require(:pet).permit(:age, :name, :sex, :description, :avatar)
     end
 end

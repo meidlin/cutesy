@@ -1,0 +1,89 @@
+<style> 
+
+/*User Profile*/
+    
+.profile-user {
+  position: relative;
+  max-width: 964px;
+  min-height: 75px;
+  margin: 0 auto;
+  padding: 10px 2px;
+  border-bottom: 1px solid #d9d9d9;
+  background: #eeeeee url("//d36xtkk24g8jdx.cloudfront.net/bluebar/dd6cb37/images/bg/white-gradient-200px.png") repeat-x 50% 50%;
+  -webkit-box-shadow: 1px 0 0 rgba(0, 0, 0, 0.05), -1px 0 0 rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 1px 0 0 rgba(0, 0, 0, 0.05), -1px 0 0 rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 1px 0 0 rgba(0, 0, 0, 0.05), -1px 0 0 rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/*User Pets*/
+
+.pet1{
+  background-image:url("http://www.pet360.com/Content/Images/Cms/GermanShepherd.jpg");
+  background-position:center;
+  width: 100%;
+}
+
+.pet2{
+  background-image:url("http://40.media.tumblr.com/tumblr_li81cskvhb1qi5hjlo1_1280.jpg");
+  background-position:center;
+  width: 100%;
+}
+
+.petname{
+  text-align:center;
+  background-color: rgba(0,0,0,0.4);
+  margin:auto auto;
+  color:white;
+}
+.petratingandviews{
+  text-align:center;
+  font-size:20px;
+  color:white;
+  margin-top:100px;
+}
+
+</style>   
+<div class="container">
+  
+  <div class="col-md-3 col-sm-3"></div> 
+    <div class="thumbnail col-md-6 col-sm-6" style="padding: 0">   
+        <div class="profile-user" style>
+          <div class="row-fluid">
+          <!-- Image and Handle  -->
+              <img src="<%=current_user.profile_image_url %>" class="img-polaroid" style="height:200px; width:200px;"/>
+              <h2 style="position:relative"><%= current_user.screen_name %></h2>
+          </div>
+      <!-- Description Panel -->
+      <div class="panel panel-default">
+        <div class="panel-body">
+        	<%= current_user.description %>
+        </div>
+      </div>
+      <h2 style="text-align:center">Pets</h2>
+      <hr >
+
+      <div ng-controller="feedController" class="panel panel-default">
+        <div class="panel-body">
+          <div ng-repeat="pet in pets" class="pet1">
+            <div class="petname">
+              <h2>{{pet.name}}</h2>
+            </div>
+            <div class="petratingandviews">
+              <div class="petrating">
+                16,256 views
+              </div>
+              <div class="petviews">
+                Average 4.37 stars
+              </div>
+            </div>
+          </div> 
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
+
+
+
+<div class="col-md-3 col-sm-3"></div>
+</body>

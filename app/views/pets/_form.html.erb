@@ -1,3 +1,17 @@
+<script type="text/javascript">
+var shownOne = $('#dogBreeds');
+var showBreeds = function(petKind){
+  var test = $('#'+petKind+'Breed');
+  console.log(shownOne);
+  shownOne.hide();
+  test.show();
+  shownOne = test;
+};
+
+
+
+</script>
+
 <%= form_for(@pet) do |f| %>
   <% if @pet.errors.any? %>
     <div id="error_explanation">
@@ -11,24 +25,48 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :age %><br>
-    <%= f.number_field :age %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :sex %><br>
-    <%= f.number_field :sex %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+      
+      <div class="field">
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </div>
+      <h1>Cat</h1>
+      <input type="radio" name="petKind" value="cat" onChange="showBreeds('cat')"></input>
+      <h1>Dog</h1>
+      <input type="radio" name="petKind" value="dog" onChange="showBreeds('dog')"></input>
+
+      <div class="field">
+        <%= f.label :breed_id%><br>
+        <!-- Select list cascading dropdown similar to age, look into nested  -->
+        <div id="dogBreeds" class="breedDiv">
+          <%= f.collection_select :breed_id, PetKind.where(name:"cat").first.breeds, :id, :name %>
+        </div>
+        <div id="catBreeds" class="breedDiv">
+          <%= f.collection_select :breed_id, PetKind.where(name:"dog").first.breeds, :id, :name %>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= f.label :age %><br>
+        <!-- http://apidock.com/rails/ActionView/Helpers/FormTagHelper/number_field_tag -->
+        <%= f.number_field :age %>
+      </div>
+      
+      <div class="field">
+        <%= f.label :sex %><br>
+        <!-- http://guides.rubyonrails.org/form_helpers.html#making-select-boxes-with-ease (3.1) -->
+        <%= f.number_field :sex %>
+      </div>
+      <div class="field">
+        <%= f.label :description %><br>
+        <%= f.text_area :description %>
+      </div>
+        <%= f.label :avatar %><br>
+        <%= f.file_field :avatar, :class => "image-choice-button" %>
+      <div class="field">
+      
+      <div class="actions">
+        <%= f.submit 'Create pet!', :class => 'btn btn-block btn-lg btn-primary' %>
+      </div>
 <% end %>

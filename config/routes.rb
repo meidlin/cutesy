@@ -3,8 +3,17 @@ Rails.application.routes.draw do
   resources :breeds
   resources :pets
   resources :images
+  resources :users
 
-  root 'betasignup#betasignup'
+  
+
+  get 'sessions/edit' => 'sessions#edit'
+
+
+  get 'pets/leader/1' => 'pets#leader'
+
+
+  root 'application#index'
 
   get 'auth/twitter/callback', to: 'sessions#create'
 
@@ -13,6 +22,14 @@ Rails.application.routes.draw do
   put 'betasignup/2' => 'betasignup#update'
   patch 'betasignup/2' => 'betasignup#update'
   get 'betasignup/3' => 'betasignup#betasignup3', as: :betasignup3
+
+  scope 'api', defaults: {format: :json} do
+    resources :sessions, only: [:index, :create, :update, :destroy]
+  end
+
+  scope 'petsapi', defaults: {format: :json} do
+    resources :pets, only: [:index, :create, :update, :destroy]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

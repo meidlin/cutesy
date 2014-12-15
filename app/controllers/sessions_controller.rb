@@ -31,7 +31,8 @@ class SessionsController < ApplicationController
 					name: t_raw.name,
 					profile_image_url: t_raw.profile_image_url,
 					time_zone: t_raw.time_zone,
-					utc_offset: t_raw.utc_offset
+					utc_offset: t_raw.utc_offset,
+					description: 'Edit your description! '
 				}
 			)
 		end
@@ -43,7 +44,12 @@ class SessionsController < ApplicationController
 
 	def index
 		users = User.all
+		render json: users, status: 200
 	end
+
+	def show
+	end
+
 
 	def edit
 		user = User.find(params[:id])
@@ -58,6 +64,7 @@ class SessionsController < ApplicationController
 	def user_params
 		params.require(:user).permit(:description)
 	end
+
 
 
 
