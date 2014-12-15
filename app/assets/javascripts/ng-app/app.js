@@ -1,8 +1,18 @@
 angular.module('spaApp', ['ui.router', 'templates'])
 
+.controller('navController', ['$scope', '$location', function($scope, $location){
+
+  $scope.getUrlProfile = function(){
+  window.location.assign('http://localhost:3000/users');
+  };
+
+  $scope.getUrlFeed = function(){}
+
+}])
+
 .config(function($stateProvider, $urlRouterProvider) {
 
-$urlRouterProvider.otherwise('/');
+// $urlRouterProvider.otherwise('/');
 
 $stateProvider
 
