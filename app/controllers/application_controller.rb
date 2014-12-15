@@ -4,7 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
 
+
   def index
+  	@@apithingy = ENV['KEEN_CLIENT_ID']
   end
+
 
 end
