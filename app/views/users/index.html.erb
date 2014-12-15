@@ -43,24 +43,26 @@
 }
 
 </style>   
-<div class="container">
-  
-  <div class="col-md-3 col-sm-3"></div> 
-    <div class="thumbnail col-md-6 col-sm-6" style="padding: 0">   
-        <div class="profile-user" style>
-          <div class="row-fluid">
-          <!-- Image and Handle  -->
-              <img src="<%=current_user.profile_image_url %>" class="img-polaroid" style="height:200px; width:200px;"/>
-              <h2 style="position:relative"><%= current_user.screen_name %></h2>
+<div class="col-md-3 col-sm-0 col-xs-0"></div>
+<!-- Center Container -->
+	<div class="container">
+		<!-- Grey background -->
+        <div class="profile-user col-md-6" style>
+        	<!-- Image and handle -->
+          <div class="row-fluid"  style="height:200px; margin-bottom: 10px;">
+              <img src="<%=current_user.profile_image_url %>" class="img-polaroid" style="height:150px; width:150px; float:left; "/>
+              <h2 class="col-md-6 col-xs-6 col-sm-6" style="position:relative; color: #4099FF;"><%= current_user.screen_name %></h2>
+              <!-- Need to add if current_user clause --> 
+              <button type="button" class="btn btn-default">Edit Profile</button> 
           </div>
-      <!-- Description Panel -->
-      <div class="panel panel-default">
-        <div class="panel-body">
-        	<%= current_user.description %>
-        </div>
-      </div>
-      <h2 style="text-align:center">Pets</h2>
-      <hr >
+        <!-- Description Panel -->
+        <div class="panel panel-default" style="">
+	        <div class="panel-body">
+				<%= current_user.description %>
+	        </div>
+      	</div>
+        	
+      <h2 style="text-align:center; color:#4099FF;">Pets</h2>
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="pet1">
@@ -84,5 +86,5 @@
 
 
 
-<div class="col-md-3 col-sm-3"></div>
+<div class="col-md-3 col-sm-3 col-xs-0"></div>
 </body>
