@@ -31,7 +31,8 @@ class SessionsController < ApplicationController
 					name: t_raw.name,
 					profile_image_url: t_raw.profile_image_url,
 					time_zone: t_raw.time_zone,
-					utc_offset: t_raw.utc_offset
+					utc_offset: t_raw.utc_offset,
+					description: 'Edit your description! '
 				}
 			)
 		end
