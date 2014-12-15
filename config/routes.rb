@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :breeds
   resources :pets
   resources :images
+  resources :users
   
 
   get 'sessions/edit' => 'sessions#edit'
