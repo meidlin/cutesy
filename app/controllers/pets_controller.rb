@@ -5,6 +5,7 @@ class PetsController < ApplicationController
   # GET /pets.json
   def index
     pets = Pet.all
+    # @users= Pet.user.all
     render json: pets, status: 200
   end
 
@@ -15,6 +16,10 @@ class PetsController < ApplicationController
 
   def leader
     @pets = Pet.all
+  end
+
+  def post
+    
   end
   
 
@@ -32,8 +37,13 @@ class PetsController < ApplicationController
   def create
     @pet = Pet.new(pet_params)
 
+    # This assigns pet to user
+    @current_user = current_user
+    @current_user.pets << @pet
+    
+
     respond_to do |format|
-      if @pet.save
+      if @current_user.save
         format.html { redirect_to @pet, notice: 'Pet was successfully created.' }
         format.json { render :show, status: :created, location: @pet }
       else
