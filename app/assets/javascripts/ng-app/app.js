@@ -73,6 +73,8 @@ $stateProvider
   .then(function(data){
     $scope.pets = [data.data];
     $scope.pets = data.data;
+    $scope.petimage = avatar.url(file_name);
+    
     // From here, we experiment
 
   });
