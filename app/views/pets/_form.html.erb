@@ -1,3 +1,17 @@
+<script type="text/javascript">
+var shownOne = $('#dogBreeds');
+var showBreeds = function(petKind){
+  var test = $('#'+petKind+'Breed');
+  console.log(shownOne);
+  shownOne.hide();
+  test.show();
+  shownOne = test;
+};
+
+
+
+</script>
+
 <%= form_for(@pet) do |f| %>
   <% if @pet.errors.any? %>
     <div id="error_explanation">
@@ -10,16 +24,27 @@
       </ul>
     </div>
   <% end %>
+
+
       
       <div class="field">
         <%= f.label :name %><br>
         <%= f.text_field :name %>
       </div>
+      <h1>Cat</h1>
+      <input type="radio" name="petKind" value="cat" onChange="showBreeds('cat')"></input>
+      <h1>Dog</h1>
+      <input type="radio" name="petKind" value="dog" onChange="showBreeds('dog')"></input>
 
       <div class="field">
         <%= f.label :breed_id%><br>
         <!-- Select list cascading dropdown similar to age, look into nested  -->
-        <%= f.text_field :breed_id %>
+        <div id="dogBreeds" class="breedDiv">
+          <%= f.collection_select :breed_id, PetKind.where(name:"cat").first.breeds, :id, :name %>
+        </div>
+        <div id="catBreeds" class="breedDiv">
+          <%= f.collection_select :breed_id, PetKind.where(name:"dog").first.breeds, :id, :name %>
+        </div>
       </div>
 
       <div class="field">
