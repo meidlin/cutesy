@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
 
 
   def index
-  	@@apithingy = ENV['KEEN_CLIENT_ID']
   end
 
 
