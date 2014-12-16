@@ -97,6 +97,7 @@ $stateProvider
   $scope.pets_index = 0;
   $scope.pets = {};
 
+// function for proceeding through the next pet object in array
   $scope.next = function(){
     if ($scope.pets_index >= $scope.pets.length -1) {
       $scope.pets_index = 0;
@@ -108,6 +109,26 @@ $stateProvider
 
   $scope.choose = function(pets) {
     $scope.pets = pets;
+  };
+
+// function for sending rating to pet object on click
+  $scope.sendRating = function(){
+    
+    var input = document.getElementsByName('ratingsinput')[0];
+    rating = input.value;
+    console.log(rating);
+    var ratingObject  = {};
+    ratingObject.rating = {};
+    ratingObject.rating.user_id = $scope.pets[$scope.pets_index].user_id;
+    ratingObject.rating.pet_id = $scope.pets[$scope.pets_index].id;
+    ratingObject.rating.rating = rating;
+
+   $.post('/ratings', ratingObject, function(data){
+        console.log(data);
+      },'json');
+
+   
+
   }
 // Test var
   // $scope.test = 'darla test works';
