@@ -24,6 +24,8 @@ gem 'omniauth-twitter'
 
 gem 'httparty'
 
+gem 'impressionist'
+
 gem 'angular-rails-templates'
 
 # Use jquery as the JavaScript library
