@@ -35,15 +35,15 @@ class PetsController < ApplicationController
   # POST /pets
   # POST /pets.json
   def create
-    @pet = Pet.new(pet_params)
+    @pet = current_user.pets.new(pet_params)
 
+    # TODO wipe this out later 
     # This assigns pet to user
-    @current_user = current_user
-    @current_user.pets << @pet
-    
+    # @current_user = current_user
+    # @current_user.pets << @pet
 
     respond_to do |format|
-      if @current_user.save
+      if @pet.save
         format.html { redirect_to @pet, notice: 'Pet was successfully created.' }
         format.json { render :show, status: :created, location: @pet }
       else
