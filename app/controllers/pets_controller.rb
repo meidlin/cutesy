@@ -35,11 +35,11 @@ class PetsController < ApplicationController
   # POST /pets
   # POST /pets.json
   def create
-    @pet = Pet.new(pet_params)
-
-    # This assigns pet to user
-    @current_user = current_user
-    @current_user.pets << @pet
+    @pet = current_user.pets.new(pet_params)
+    # @pet = Pet.new(pet_params)
+    # # This assigns pet to user
+    # @current_user = current_user
+    # @current_user.pets << @pet
     
 
     respond_to do |format|
