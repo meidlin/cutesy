@@ -43,11 +43,11 @@
 }
 
 </style>   
-<div class="col-md-3 col-sm-0 col-xs-0"></div>
+<div class="col-md-3 col-sm-3 col-xs-0"></div>
 <!-- Center Container -->
 	<div class="container">
 		<!-- Grey background -->
-        <div class="profile-user col-md-6" style>
+        <div class="profile-user col-md-6 col-sm-6" style>
         	<!-- Image and handle -->
           <div class="row-fluid"  style="height:200px; margin-bottom: 10px;">
               <img src="<%=current_user.profile_image_url.gsub(/_normal/, '') %>" class="img-polaroid" style="height:150px; width:150px; float:left; "/>
@@ -67,7 +67,7 @@
         <div class="panel-body">
           <div class="pet1">
             <div class="petname">
-              <h2><%= @pets.first.name %></h2>
+              <h2><%= link_to @pets.first.name, pets_path(@pet) %></h2>
             </div>
             <div class="petratingandviews">
               <div class="petrating">
