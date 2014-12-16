@@ -18,7 +18,7 @@ gem 'bootstrap-sass', '~> 3.2.0'
 
 gem 'bower-rails'
 
-gem 'paperclip', '~> 4.2'
+gem 'paperclip', github: 'thoughtbot/paperclip'
 
 gem 'omniauth-twitter'
 
