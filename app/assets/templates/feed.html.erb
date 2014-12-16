@@ -1,19 +1,4 @@
-<style type="text/css">
-/*Star Rating*/
-.star {
-  font-size: 40px;
-  color: orange;
-  cursor: pointer;
-}
-span:hover:before {
-  content: "\2605";
-  position: absolute;
-  color: orange;
-}
-</style>
-</head>
-
-<div ng-controller="feedController">{{test}}
+<div ng-controller="feedController">
   <div ng-repeat="pet in pets"> 
     <div ng-if="pets_index == $index" class="container">
         <div class="row">
@@ -75,13 +60,16 @@ span:hover:before {
                   <div class="panel-body" style="padding-top:0px;">
                     <div class="name col-md-12" style="font-size:36px; text-align:center; color:#FFD700;">
                       <p style="margin:0">Rate me</p>
+
+                      <input id="input-id" type="number" class="rating" min=0 max=5 step=1 data-size="xs" >
+
                     </div>
                     <!-- Actual stars -->
-                      <div style="width: 200px; margin: 0px auto; ">
+                   <!--    <div style="width: 200px; margin: 0px auto; ">
                        <big> <span class="star">&#9734;<span class="star">&#9734;<span class="star">&#9734;<span class="star">&#9734;<span class="star">&#9734;</span></span></span></span></span></big>
                       </div>
                   </div>
-                </div>
+                </div> -->
                 <!-- Submit Button  -->
                 <div class="panel panel-default" style="margin-bottom:0px">
                   <div class="panel-body" style="padding:0px;">
@@ -95,6 +83,12 @@ span:hover:before {
     </div>
   </div>
 </div>
+
+<script>
+$(function(){
+  $("#input-id").rating();
+});
+</script>
 
 
 
