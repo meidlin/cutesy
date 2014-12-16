@@ -86,8 +86,25 @@
 
 <script>
 $(function(){
-  $("#input-id").rating();
+  $("#input-id").rating({
+  });
+
+    $('#input-id').on('rating.change', function(event, value, caption) {
+    $.post('/ratings', {
+      value: value
+    }, function(data){
+      console.log(data);
+    });
+
+
+    console.log(value);
+    console.log(caption);
 });
+
+});
+
+
+
 </script>
 
 
