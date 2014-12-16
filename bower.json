@@ -1,9 +1,10 @@
 {
+  "name": "yaaaa",
   "lib": {
     "name": "bower-rails generated lib assets",
     "dependencies": {
-      // "threex"      : "git@github.com:rharriso/threex.git",
-      // "gsvpano.js"  : "https://github.com/rharriso/GSVPano.js/blob/master/src/GSVPano.js"
+      "threex"      : "git@github.com:rharriso/threex.git",
+      "gsvpano.js"  : "https://github.com/rharriso/GSVPano.js/blob/master/src/GSVPano.js"
     }
   },
   "vendor": {
