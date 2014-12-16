@@ -4,7 +4,6 @@ class UsersController < ApplicationController
 	def index
 		@users = User.all
 		@pets = @users.first.pets
-		binding.pry
 	end
 
 	def show
