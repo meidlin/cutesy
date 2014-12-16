@@ -36,11 +36,19 @@ class PetsController < ApplicationController
   # POST /pets.json
   def create
     @pet = current_user.pets.new(pet_params)
+<<<<<<< HEAD
 
     # TODO wipe this out later 
     # This assigns pet to user
     # @current_user = current_user
     # @current_user.pets << @pet
+=======
+    # @pet = Pet.new(pet_params)
+    # # This assigns pet to user
+    # @current_user = current_user
+    # @current_user.pets << @pet
+    
+>>>>>>> rails
 
     respond_to do |format|
       if @pet.save

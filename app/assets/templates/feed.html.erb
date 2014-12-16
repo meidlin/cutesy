@@ -33,7 +33,7 @@
                     <div class="name col-md-12" style="font-size:36px; text-align:center; color:#FFD700;">
                       <p style="margin:0">Rate me</p>
 
-                      <input id="input-id" type="number" class="rating" min=0 max=5 step=1 data-size="xs" data-show-clear="false" data-show-caption="false" >
+                      <input name="ratingsinput" id="input-id" type="number" class="rating" min=0 max=5 step=1 data-size="xs" data-show-clear="false" data-show-caption="false" >
 
                     </div>
                     <!-- Actual stars -->
@@ -45,8 +45,10 @@
                 <!-- Submit Button  -->
                 <div class="panel panel-default" style="margin-bottom:0px">
                   <div class="panel-body" style="padding:0px;">
+                    <!-- Skip Button -->
                     <button ng-click="next()" type="button" class="btn btn-danger btn-lg col-md-6 col-sm-6 col-xs-6" style="">Skip</button>
-                    <button ng-click="next()" type="button" class="btn btn-success btn-lg col-md-6 col-sm-6 col-xs-6">Rate!</button>
+                    <!-- Rate button -->
+                    <button ng-click="sendRating()" type="button" class="btn btn-success btn-lg col-md-6 col-sm-6 col-xs-6" id="ratebutton">Rate!</button>
                   </div>
                 </div>
 
@@ -65,17 +67,29 @@ $(function(){
     $.post('/ratings', {
       value: value
     }, function(data){
-      console.log(data);
+      // console.log(data);
     });
-
-
-    console.log(value);
-    console.log(caption);
+    // console.log(value);
 });
 
 });
 
+// $('#ratebutton').on('click', function(){
+//   var input = document.getElementsByName('ratingsinput')[0];
+//   rating = input.value;
+//   console.log(rating);
+//   var ratingObject  = {};
+//   ratingObject.user_id = pet.user_id;
+//   ratingObject.pet_id = pet.id;
+//   ratingObject.rating = rating;
 
+//   $.post('/ratings', {
+//     value: rating   
+//   }, function(data){
+
+//   });
+
+// });
 
 </script>
 
