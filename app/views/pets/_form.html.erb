@@ -1,14 +1,17 @@
 <script type="text/javascript">
 var shownOne = $('#dogBreeds');
 var showBreeds = function(petKind){
-  var test = $('#'+petKind+'Breed');
-  console.log(shownOne);
+  var selectedKind = $('#'+petKind+'Breeds');
   shownOne.hide();
-  test.show();
-  shownOne = test;
+  selectedKind.show();
+  shownOne = selectedKind;
 };
 
-
+// After loading the page
+$(function(){
+  // Hide the cat info
+  $('#catBreeds').hide();
+});
 
 </script>
 
