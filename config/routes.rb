@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :pets
   resources :images
   resources :users
+  resources :ratings, only: [:create]
 
   
 

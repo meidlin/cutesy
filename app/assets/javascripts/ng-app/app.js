@@ -6,7 +6,13 @@ angular.module('spaApp', ['ui.router', 'templates'])
   window.location.assign('http://localhost:3000/users');
   };
 
-  $scope.getUrlFeed = function(){}
+  $scope.getUrlFeed = function(){
+    window.location.assign('http://localhost:3000/#/feed');
+  };
+
+  $scope.getUrlLeader = function(){
+    window.location.assign('http://localhost:3000/pets/leader/1');
+  };
 
 }])
 
