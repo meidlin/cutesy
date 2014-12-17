@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
 
 	before_action :set_user, only: [:show, :edit, :update, :destroy]
+
 	def index
 		@users = User.all
 		@pets = @users.first.pets
+
 	end
 
 	def show
@@ -29,6 +31,7 @@ class UsersController < ApplicationController
   end
     end
 
+private
 
 		def set_user
       	@user = User.find(params[:id])
@@ -37,5 +40,8 @@ class UsersController < ApplicationController
 	    def user_params
 	      params.require(:user).permit( :screen_name, :email, :description)
 	    end
+
+
+
 
 end

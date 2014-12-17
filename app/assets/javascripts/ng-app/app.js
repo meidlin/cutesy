@@ -72,23 +72,13 @@ $stateProvider
 
 })
 
-.controller('testprofileController', function($scope, api){
-   api.getUsers()
-   .then(function(data){
-    $scope.users = data.data;
-    console.log($scope.users);
-   });
-
-   $scope.handle = "@handle_test";
-   $scope.mikeimage = "https://pbs.twimg.com/profile_images/3576116985/392f2c900b7737a2bb82b8ef86251305.jpeg";
-   $scope.descript = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vestibulum mi ut turpis fringilla, id ultrices risus blandit. Proin ut volutpat."
-})
 
 .controller('feedController', function($scope, petsapi){
   petsapi.getPets()
   .then(function(data){
     $scope.pets = [data.data];
     $scope.pets = data.data;
+    console.log(data.data);
     
     // From here, we experiment
 
@@ -114,19 +104,32 @@ $stateProvider
 // function for sending rating to pet object on click
   $scope.sendRating = function(){
     
+    // grab element and assign to variable input
     var input = document.getElementsByName('ratingsinput')[0];
+
+    // grab value of element
     rating = input.value;
     console.log(rating);
+
+    // instantiate empty object
     var ratingObject  = {};
+
+    // add empty object property to ^ who has a value of an empty object
+    // ratingObject = {rating: {} }
     ratingObject.rating = {};
+
+    // ratingObject = { rating: {user_id: $scope.pets[$scope.pets_index].user_id}}
     ratingObject.rating.user_id = $scope.pets[$scope.pets_index].user_id;
+
+    // ratingObject = { rating: {pet_id: $scope.pets[$scope.pets_index].id}}
     ratingObject.rating.pet_id = $scope.pets[$scope.pets_index].id;
     ratingObject.rating.rating = rating;
 
-   $.post('/ratings', ratingObject, function(data){
-        console.log(data);
-      },'json');
-
+    // AJAX call
+    $.post("/ratings", ratingObject)
+      .done(function(data) {
+        alert(data);
+      });
    
 
   }
