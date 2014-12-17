@@ -11,7 +11,12 @@ class RatingsController < ApplicationController
 
 
 	def create
-		raise params.inspect
+		rating_params = params["rating"]
+		Rating.create({user_id: rating_params["user_id"], pet_id: rating_params["pet_id"], rating: rating_params["rating"]})
+
+		# Find the next pup randomly
+		
+		render json: {dude: "hello"}
 	end
 
 	def rating_params

@@ -49,7 +49,7 @@
                     <!-- Skip Button -->
                     <button ng-click="next()" type="button" class="btn btn-danger btn-lg col-md-6 col-sm-6 col-xs-6" style="">Skip</button>
                     <!-- Rate button -->
-                    <button ng-click="sendRating()" type="button" class="btn btn-success btn-lg col-md-6 col-sm-6 col-xs-6" id="ratebutton">Rate!</button>
+                    <button ng-click="sendRating() " type="button" class="btn btn-success btn-lg col-md-6 col-sm-6 col-xs-6" id="ratebutton">Rate!</button>
                   </div>
                 </div>
 
@@ -63,13 +63,8 @@
 $(function(){
   $("#input-id").rating({
   });
-// Still need to make the rating post only on the enter click, and not post on the skip button. 
     $('#input-id').on('rating.change', function(event, value, caption) {
-    $.post('/ratings', {
-      value: value
-    }, function(data){
-      // console.log(data);
-    });
+
     // console.log(value);
 });
 

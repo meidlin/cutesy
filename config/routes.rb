@@ -33,9 +33,9 @@ Rails.application.routes.draw do
     resources :pets, only: [:index, :create, :update, :destroy]
   end
 
-  scope 'api', defaults: {form: :json} do
+#  scope 'api', defaults: {format: :json} do
     resources :ratings, only: [:create]
-  end
+#  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
