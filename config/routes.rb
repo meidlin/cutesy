@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :pets
   resources :images
   resources :users
-  resources :ratings, only: [:create]
+  # resources :ratings, only: [:create]
 
   
 
@@ -30,6 +30,10 @@ Rails.application.routes.draw do
 
   scope 'petsapi', defaults: {format: :json} do
     resources :pets, only: [:index, :create, :update, :destroy]
+  end
+
+  scope 'api', defaults: {form: :json} do
+    resources :ratings, only: [:create]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

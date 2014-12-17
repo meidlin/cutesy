@@ -89,6 +89,7 @@ $stateProvider
   .then(function(data){
     $scope.pets = [data.data];
     $scope.pets = data.data;
+    console.log(data.data);
     
     // From here, we experiment
 
@@ -114,18 +115,37 @@ $stateProvider
 // function for sending rating to pet object on click
   $scope.sendRating = function(){
     
+    // grab element and assign to variable input
     var input = document.getElementsByName('ratingsinput')[0];
+
+    // grab value of element
     rating = input.value;
     console.log(rating);
+
+    // instantiate empty object
     var ratingObject  = {};
+
+    // add empty object property to ^ who has a value of an empty object
+    // ratingObject = {rating: {} }
     ratingObject.rating = {};
+
+    // ratingObject = { rating: {user_id: $scope.pets[$scope.pets_index].user_id}}
     ratingObject.rating.user_id = $scope.pets[$scope.pets_index].user_id;
+
+    // ratingObject = { rating: {pet_id: $scope.pets[$scope.pets_index].id}}
     ratingObject.rating.pet_id = $scope.pets[$scope.pets_index].id;
     ratingObject.rating.rating = rating;
 
-   $.post('/ratings', ratingObject, function(data){
-        console.log(data);
-      },'json');
+    // AJAX call
+    $.ajax({
+      type: "POST",
+      url: '/api/ratings',
+      data: ratingObject
+    });
+
+   // $.post('/ratings', ratingObject, function(data){
+   //      console.log(data);
+   //    },'json');
 
    
 
