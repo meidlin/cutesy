@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :pet_kinds
   resources :breeds
+  get 'pets/leader' => 'pets#leader'
   resources :pets
   resources :images
   resources :users
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
   get 'sessions/edit' => 'sessions#edit'
 
 
-  get 'pets/leader/1' => 'pets#leader'
+  
 
 
   root 'application#index'

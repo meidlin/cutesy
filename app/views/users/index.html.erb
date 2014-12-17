@@ -16,6 +16,7 @@
 .pet{
   background-size:cover;
   background-repeat:no-repeat;
+  background-position:center;
 }
 
 .petname{
@@ -34,7 +35,7 @@
 </style>   
 <div class="col-md-3 col-sm-3 col-xs-0"></div>
 <!-- Center Container -->
-	<div class="container">
+	<div class="container" style="overflow:auto;">
 		<!-- Grey background -->
         <div class="profile-user col-md-6 col-sm-6" style="">
         	<!-- Image and handle -->
@@ -56,13 +57,12 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <% @pets.each do |p| %> 
-          <div class="pet" style="background-image:url(<%=  p.avatar.url(:medium).inspect %>)">
+          <div class="pet" style="background-image:url(<%=  p.avatar.url(:medium) %>)">
             <div class="petname" style="">
               <h3><%= link_to p.name, pet_path(p.id) %></h3>
             </div>
             <div class="petratingandviews">
               <!-- <%= image_tag p.avatar.url(:medium) %> -->
-
               <div class="petrating">
                 16,256 views
               </div>
@@ -70,13 +70,16 @@
                 Average 4.37 stars
               </div>
             </div>
-          </div> 
+          </div> <% end %>
         </div>
-        <% end %>
+        
       </div>
+
     </div>
   </div>  
+
 </div>
+
 
 
 
