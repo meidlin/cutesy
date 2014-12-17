@@ -2,7 +2,20 @@ class Pet < ActiveRecord::Base
   belongs_to :user
   # belongs_to :breed
 
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
-  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  has_attached_file :avatar, 
+  					:path => ":class/:attachment/:token/:style.:extension",
+   					:styles => {
+  			        :original => ['1920x1680>', :jpg],
+			        :small    => ['100x100#',   :jpg],
+			        :medium   => ['250x250',    :jpg],
+			        :large    => ['500x500>',   :jpg]
+			        }
+
+  
+  validates_attachment_content_type :avatar, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+
 end
+
+
+
 

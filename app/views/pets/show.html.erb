@@ -6,8 +6,9 @@
           <div class="col-md-3 col-sm-3 col-xs-0"></div>
               <div class="thumbnail  col-md-6 col-sm-6" style="padding: 0">
                 <!-- images -->
-
-                  <%= image_tag @pet.avatar.url(:medium) %>
+                  
+                  <%= image_tag(@pet.avatar.url(:thumbnail)) %>
+                  <%#= raise @pet.avatar.url %>
                   <!-- Name, age, breed -->
                         <div class="panel panel-default">
                             <div class="panel-body col-md-12" style="padding:0px;">

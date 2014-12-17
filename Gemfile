@@ -16,6 +16,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 group :development do
 	gem 'better_errors'
+	gem 'binding_of_caller'
 	gem 'pry-rails'
 end
 
@@ -32,6 +33,8 @@ gem 'httparty'
 gem 'impressionist'
 
 gem 'angular-rails-templates'
+
+gem 'aws-sdk'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
