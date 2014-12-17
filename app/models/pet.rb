@@ -5,7 +5,7 @@ class Pet < ActiveRecord::Base
   has_attached_file :avatar, 
   					
    					:styles => {
-  			        :original => '1920x1680>',
+  			      :original => '1920x1680>',
 			        :small    => '100x100#',
 			        :medium   => '250x250',
 			        :large    => '500x500>'
