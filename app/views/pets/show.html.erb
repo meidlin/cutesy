@@ -7,7 +7,8 @@
               <div class="thumbnail  col-md-6 col-sm-6" style="padding: 0">
                 <!-- images -->
                   
-                  <%= image_tag(@pet.avatar.url(:thumbnail).gsub("/?.*/","")) %>
+
+                  <%= image_tag(@pet.avatar.url(:original)) %><!--.url(:thumbnail)-->
                   <%#= raise @pet.avatar.url %>
                   <!-- Name, age, breed -->
                         <div class="panel panel-default">
@@ -24,7 +25,7 @@
                 <!-- Pet description -->
                 <div class="panel panel-default">
                   <div class="panel-body">
-                      <p style="font-size:18px;"><%= @pet.description %></p>
+                      <p style=""><%= @pet.description %></p>
                   </div>
                 </div>
                 <!-- Ratings -->
@@ -41,11 +42,11 @@
                     </div>
                       
                     
-                <!-- Edit, Back buttons  -->
-                <div class="panel panel-default" style="margin-top:20px; margin-bottom:0px;">
+                <!-- Submit Button  -->
+                <div class="panel panel-default" style="margin-bottom:0px">
                   <div class="panel-body" style="padding:0px;">
                     <button type="button" class="btn btn-warning btn-lg col-md-6 col-sm-6 col-xs-6" style=""><%= link_to 'Edit', edit_pet_path(@pet) %> </button>
-                    <button  type="button" class="btn btn-info btn-lg col-md-6 col-sm-6 col-xs-6"><%= link_to 'Back', users_path %></button>
+                    <button  type="button" class="btn btn-info btn-lg col-md-6 col-sm-6 col-xs-6"><%= link_to 'Back', pets_path %></button>
                   </div>
                 </div>
 

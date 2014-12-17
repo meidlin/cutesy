@@ -3,16 +3,18 @@ class Pet < ActiveRecord::Base
   # belongs_to :breed
 
   has_attached_file :avatar, 
-  					:path => ":class/:attachment/:token/:style.:extension",
-   					:styles => {
-  			        :original => ['1920x1680>', :jpg],
-			        :small    => ['100x100#',   :jpg],
-			        :medium   => ['250x250',    :jpg],
-			        :large    => ['500x500>',   :jpg]
-			        }
+            
+              :styles => {
+              :original => '1920x1680>',
+              :small    => '100x100#',
+              :medium   => '250x250',
+              :large    => '500x500>'
+              },
+              :use_timestamp => false
 
   
-  validates_attachment_content_type :avatar, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  
 
 end
 
