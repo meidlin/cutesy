@@ -7,7 +7,7 @@
               <div class="thumbnail  col-md-6 col-sm-6" style="padding: 0">
                 <!-- images -->
                   
-                  <%= image_tag(@pet.avatar.url(:thumbnail)) %>
+                  <%= image_tag(@pet.avatar.url(:thumbnail).gsub("/?.*/","")) %>
                   <%#= raise @pet.avatar.url %>
                   <!-- Name, age, breed -->
                         <div class="panel panel-default">
