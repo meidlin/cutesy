@@ -101,7 +101,7 @@ $stateProvider
     $scope.pets = pets;
   };
 
-// function for sending rating to pet object on click
+  // function for sending rating to pet object on click
   $scope.sendRating = function(){
     
     // grab element and assign to variable input
