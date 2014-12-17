@@ -34,10 +34,9 @@ $(function(){
         <%= f.label :name %><br>
         <%= f.text_field :name %>
       </div>
-      <h1>Dog</h1>
-      <input type="radio" name="petKind" value="cat" onChange="showBreeds('cat')"></input>
-      <h1>Cat</h1>
-      <input type="radio" name="petKind" value="dog" onChange="showBreeds('dog')"></input>
+      <h2>Cat or Dog?</h2>
+      <input type="radio" name="petKind" value="cat" onChange="showBreeds('cat')" class="btn btn-default col-md-6 col-sm-6"></input>
+      <input type="radio" name="petKind" value="dog" onChange="showBreeds('dog')" class="btn btn-default col-md-6 col-sm-6"></input>
 
       <div class="field">
         <%= f.label :breed_id%><br>
@@ -67,9 +66,10 @@ $(function(){
       </div>
         <%= f.label :avatar %><br>
         <%= f.file_field :avatar, :class => "image-choice-button" %>
-      <div class="field">
+      <div class="field" style="margin-top:20px">
       
       <div class="actions">
+
         <%= f.submit 'Create pet!', :class => 'btn btn-block btn-lg btn-primary' %>
       </div>
 <% end %>
