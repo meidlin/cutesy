@@ -12,9 +12,6 @@ Rails.application.routes.draw do
   get 'sessions/edit' => 'sessions#edit'
 
 
-  
-
-
   root 'application#index'
 
   get 'auth/twitter/callback', to: 'sessions#create'

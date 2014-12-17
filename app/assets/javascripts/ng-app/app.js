@@ -11,7 +11,7 @@ angular.module('spaApp', ['ui.router', 'templates'])
   };
 
   $scope.getUrlLeader = function(){
-    window.location.assign('http://localhost:3000/pets/leader/1');
+    window.location.assign('http://localhost:3000/pets/leader');
   };
 
 }])
