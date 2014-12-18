@@ -1,14 +1,9 @@
- <style> 
+<style> 
 
 /*User Profile*/
     
 .profile-user {
-  position: relative;
-  max-width: 964px;
-  min-height: 75px;
-  margin: 0 auto;
-  padding: 10px 2px;
-  border-bottom: 1px solid #d9d9d9;
+  padding: 10px 5px;
   background: #eeeeee url("//d36xtkk24g8jdx.cloudfront.net/bluebar/dd6cb37/images/bg/white-gradient-200px.png") repeat-x 50% 50%;
   -webkit-box-shadow: 1px 0 0 rgba(0, 0, 0, 0.05), -1px 0 0 rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: 1px 0 0 rgba(0, 0, 0, 0.05), -1px 0 0 rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -17,16 +12,10 @@
 
 /*User Pets*/
 
-.pet1{
-  background-image:url("http://www.pet360.com/Content/Images/Cms/GermanShepherd.jpg");
+.pet{
+  background-size:cover;
+  background-repeat:no-repeat;
   background-position:center;
-  width: 100%;
-}
-
-.pet2{
-  background-image:url("http://40.media.tumblr.com/tumblr_li81cskvhb1qi5hjlo1_1280.jpg");
-  background-position:center;
-  width: 100%;
 }
 
 .petname{
@@ -42,33 +31,45 @@
   margin-top:100px;
 }
 
+.addpetbutton{
+  width:30%;
+  display:block;
+  margin: auto;
+}
+
 </style>   
-<div class="container">
-  
-  <div class="col-md-3 col-sm-3 "></div> 
-    <div class="thumbnail col-md-6 col-sm-6" style="padding: 0">   
-        <div class="profile-user" style>
-          <div class="row-fluid">
-          <!-- Image and Handle  -->
-              <img src="<%=current_user.profile_image_url %>" class="img-polaroid" style="height:200px; width:200px;"/>
-              <h2 style="position:relative"><%= current_user.screen_name %></h2>
+<div class="col-md-3 col-sm-3 col-xs-0"></div>
+<!-- Center Container -->
+  <div class="container" style="">
+    <!-- Grey background -->
+        <div class="profile-user col-md-6 col-sm-6" style="">
+          <!-- Image and handle -->
+          <div class="row-fluid"  style="height:200px; margin-bottom: 10px;">
+              <img src="<%=current_user.profile_image_url.gsub(/_normal/, '') %>" class="img-polaroid" style="height:150px; width:150px; float:left; "/>
+              <h2 class="col-md-6 col-xs-6 col-sm-6" style="position:relative; color: #4099FF;"><%= current_user.screen_name %></h2>
+              <!-- Need to add if current_user clause --> 
+              <button type="button" class="btn btn-default"><%= link_to 'Edit Profile', edit_user_path(current_user.id) %> </button> 
           </div>
-      <!-- Description Panel -->
+        <!-- Description Panel -->
+        <div class="panel panel-default" style="">
+          <div class="panel-body">
+        <%= current_user.description %>
+          </div>
+        </div>
+      <div id="pet" style="color:#4099FF;">
+        <h2 style="text-align:center; ">Pets</h2>
+      </div>
+
+      <!-- Pet Panel -->
       <div class="panel panel-default">
         <div class="panel-body">
-        	<%= current_user.description %>
-        </div>
-      </div>
-      <h2 style="text-align:center">Pets</h2>
-      <hr >
-
-      <div ng-controller="feedController" class="panel panel-default">
-        <div class="panel-body">
-          <div ng-repeat="pet in pets" class="pet1">
-            <div class="petname">
-              <h2>{{pet.name}}</h2>
+          <% @pets.each do |p| %> 
+          <div class="pet" style="background-image:url(<%=  p.avatar.url(:medium) %>)">
+            <div class="petname" style="">
+              <h3><%= link_to p.name, pet_path(p.id) %></h3>
             </div>
             <div class="petratingandviews">
+              <!-- <%= image_tag p.avatar.url(:medium) %> -->
               <div class="petrating">
                 16,256 views
               </div>
@@ -76,14 +77,23 @@
                 Average 4.37 stars
               </div>
             </div>
-          </div> 
+          </div> <% end %>
         </div>
       </div>
-    </div>
+
+        <!-- add pet -->
+        <div class="panel panel-default">
+          <div class="petname" style="">
+                <h3 style="margin:0;">add pet</h3>
+          </div>
+          <div class="panel-body" style="padding:0;">
+            <%= link_to image_tag("addpet.png", {:class => 'addpetbutton'}), new_pet_path %> 
+          </div>
+        </div>
+
+
+      </div>
   </div>  
 </div>
-
-
-
-<div class="col-md-3 col-sm-3"></div>
+<div class="col-md-3 col-sm-3 col-xs-0"></div>
 </body>

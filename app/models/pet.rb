@@ -15,6 +15,12 @@ class Pet < ActiveRecord::Base
   
    validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   
+  def get_user_screen_name
+    
+
+
+  end
+
 
 end
 

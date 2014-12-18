@@ -30,6 +30,7 @@ class PetsController < ApplicationController
 
   # GET /pets/1/edit
   def edit
+    @edit = true
   end
 
   # POST /pets
@@ -72,7 +73,7 @@ class PetsController < ApplicationController
   def destroy
     @pet.destroy
     respond_to do |format|
-      format.html { redirect_to pets_url, notice: 'Pet was successfully removed.' }
+      format.html { redirect_to users_path, notice: 'Pet was successfully removed.' }
       format.json { head :no_content }
     end
   end
