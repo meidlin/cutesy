@@ -1,6 +1,7 @@
 class BetasignupController < ApplicationController
 	def betasignup
 	end
+	
 	def betasignup2
 		@user = User.where(id: session[:user_id]).first
 	end
