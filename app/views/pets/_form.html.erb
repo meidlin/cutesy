@@ -43,8 +43,6 @@ $(function(){
           </label>
         </div>
 
-
-
       <!-- Breed ID  -->
       <div class="field">
         <%= f.label :breed_id%><br>
@@ -66,7 +64,13 @@ $(function(){
       <div class="field">
         <%= f.label :sex %><br>
         <!-- http://guides.rubyonrails.org/form_helpers.html#making-select-boxes-with-ease (3.1) -->
-        <%= f.number_field :sex %>
+      <!-- Male or Female Button -->
+        <div class="btn-group" data-toggle="buttons" style="margin-top:10px;" >
+          <label class="btn btn-primary">
+            <%= f.radio_button :sex, "1" %>Male</label>
+          <label class="btn btn-primary">
+            <%= f.radio_button :sex, "2" %>Female</label>
+        </div>
       </div>
       <div class="field">
         <%= f.label :description %><br>

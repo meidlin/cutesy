@@ -80,7 +80,6 @@ ActiveRecord::Schema.define(version: 20141215192500) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "twitter_handle"
-    t.string   "description"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
