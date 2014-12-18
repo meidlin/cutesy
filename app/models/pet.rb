@@ -1,5 +1,6 @@
 class Pet < ActiveRecord::Base
   belongs_to :user
+  belongs_to :breed
   # belongs_to :breed
 
   has_attached_file :avatar, 
@@ -15,11 +16,7 @@ class Pet < ActiveRecord::Base
   
    validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   
-  def get_user_screen_name
-    
-
-
-  end
+  
 
 
 end
