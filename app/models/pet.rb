@@ -1,12 +1,12 @@
 class Pet < ActiveRecord::Base
   belongs_to :user
   belongs_to :breed
-  # belongs_to :breed
+ 
 
   has_attached_file :avatar, 
               :storage => :s3,
               :bucket => 'cutesy',
-              :path => "/image/:id/:filename",
+              #:path => "/image/:id/:filename",
               :s3_credentials => {
                 :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
                 :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
