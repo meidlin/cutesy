@@ -16,7 +16,7 @@ angular.module('spaApp', ['ui.router', 'templates'])
 
 }])
 
-.config(['$stateprovider', '$urlRouteProvider', function($stateProvider, $urlRouterProvider) {
+.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
 // $urlRouterProvider.otherwise('/');
 
