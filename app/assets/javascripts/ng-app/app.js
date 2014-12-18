@@ -3,15 +3,15 @@ angular.module('spaApp', ['ui.router', 'templates'])
 .controller('navController', ['$scope', '$location', function($scope, $location){
 
   $scope.getUrlProfile = function(){
-  window.location.assign('http://localhost:3000/users');
+  window.location.assign('http://cutesy.herokuapp.com/users');
   };
 
   $scope.getUrlFeed = function(){
-    window.location.assign('http://localhost:3000/#/feed');
+    window.location.assign('http://cutesy.herokuapp.com/#/feed');
   };
 
   $scope.getUrlLeader = function(){
-    window.location.assign('http://localhost:3000/pets/leader');
+    window.location.assign('http://cutesy.herokuapp.com/pets/leader');
   };
 
 }])
