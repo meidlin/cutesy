@@ -11,7 +11,8 @@ class Pet < ActiveRecord::Base
               :medium   => '250x250',
               :large    => '500x500>'
               },
-              :use_timestamp => false
+              :use_timestamp => false,
+              :path => "cutesy/:attachment/:style/:id.:extension"
 
   
    validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
