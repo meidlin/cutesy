@@ -19,4 +19,4 @@ cat_breeds.each{|b| Breed.create(pet_kind:cat, name:b)}
 
 
 
-Pet.create([{name: 'Darla', age:'4', sex:'female', description:'Darla is my name, being a sausage queen is my fame. I love to bark in your face'},{name: 'JoJo', age:'13', sex:'female', description:'JoJo is my name, and ill give you kisses for fame. But beweare I drink out of the toilet when I can'}])
+Pet.create([{name: 'Darla', age:'4', sex:'female', description:'Darla is my name, being a sausage queen is my fame. I love to bark in your face'}])

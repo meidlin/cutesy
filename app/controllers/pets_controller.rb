@@ -21,6 +21,13 @@ class PetsController < ApplicationController
   def post
     
   end
+
+  def getpetUrl
+    @pet = Pet.find(params[:id])
+    @peturl = @pet.avatar.url(:original) 
+    render json: @peturl
+  end
+
   
 
   # GET /pets/new

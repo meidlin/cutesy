@@ -137,6 +137,7 @@ $stateProvider
   // $scope.test = 'darla test works';
 })
 
+
 // .controller('leaderboard', function($scope, api){
 //   api.getPets()
 //   .then(function(data){
@@ -157,6 +158,15 @@ $stateProvider
       });
       return promise;
     }
+    // partially done aka ask lorin lolz
+
+    // getimgUrl: function(){
+    //   var promise = $http.get('/petsapi/getpeturl')
+    //         data: petsid
+    //   .then(function(data){
+    //     return data.peturl
+    //   })
+    // }
   }
 })
 
