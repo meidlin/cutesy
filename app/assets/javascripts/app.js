@@ -3,20 +3,20 @@ angular.module('spaApp', ['ui.router', 'templates'])
 .controller('navController', ['$scope', '$location', function($scope, $location){
 
   $scope.getUrlProfile = function(){
-  window.location.assign('http://localhost:3000/users');
+  window.location.assign('http://cutesy.herokuapp.com/users');
   };
 
   $scope.getUrlFeed = function(){
-    window.location.assign('http://localhost:3000/#/feed');
+    window.location.assign('http://cutesy.herokuapp.com/#/feed');
   };
 
   $scope.getUrlLeader = function(){
-    window.location.assign('http://localhost:3000/pets/leader');
+    window.location.assign('http://cutesy.herokuapp.com/pets/leader');
   };
 
 }])
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
 // $urlRouterProvider.otherwise('/');
 
@@ -70,10 +70,10 @@ $stateProvider
          	controller: 'leaderboardController'
      });
 
-})
+}])
 
 
-.controller('feedController', function($scope, petsapi){
+.controller('feedController', ['$scope', 'petsapi', function($scope, petsapi){
   petsapi.getPets()
   .then(function(data){
     $scope.pets = data.data.pets;
@@ -129,25 +129,10 @@ $stateProvider
       .done(function(data) {
         alert(data);
       });
-   
-
   }
-// Test var
-  // $scope.test = 'darla test works';
-})
+}])
 
-
-// .controller('leaderboard', function($scope, api){
-//   api.getPets()
-//   .then(function(data){
-//     $scope.pets = data.data;
-//   });
-//   $scope.petz = ["hi", "there", "matt"];
-
-//   $scope.test = "test test test";
-// })
-
-.service('petsapi', function($http) {
+.service('petsapi', ['$http', function($http) {
   return {
     getPets: function(){
 
@@ -157,19 +142,10 @@ $stateProvider
       });
       return promise;
     }
-    // partially done aka ask lorin lolz
-
-    // getimgUrl: function(){
-    //   var promise = $http.get('/petsapi/getpeturl')
-    //         data: petsid
-    //   .then(function(data){
-    //     return data.peturl
-    //   })
-    // }
   }
-})
+}])
 
-.service('api', function($http) {
+.service('api', ['$http', function($http) {
 	return {
 		getUsers: function(){
 
@@ -180,4 +156,4 @@ $stateProvider
 			return promise;
 		}
 	}
-});
+}]);
