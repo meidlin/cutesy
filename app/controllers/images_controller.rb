@@ -5,6 +5,7 @@ class ImagesController < ApplicationController
   # GET /images.json
   def index
     @images = Image.all
+    render json: @images.first, serializer: ImageSerializer
   end
 
   # GET /images/1

@@ -19,7 +19,7 @@
                 <td style="font-size:30px; text-align:center;"><%= x %></td>
                 <td><%= image_tag p.avatar.url(:medium), :style =>'width: 75px; height: 75px;' %></td>
                 <td><%= p.name %> </td>
-                <td><% p.user_id %></td>
+                <td><%= p.user.screen_name %></td>
                 <td>p.bAvgRating</td>
 
             </tr>

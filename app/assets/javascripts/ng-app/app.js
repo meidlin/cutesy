@@ -76,9 +76,8 @@ $stateProvider
 .controller('feedController', function($scope, petsapi){
   petsapi.getPets()
   .then(function(data){
-    $scope.pets = [data.data];
-    $scope.pets = data.data;
-    console.log(data.data);
+    $scope.pets = data.data.pets;
+    console.log(data.data.pets);
     
     // From here, we experiment
 
@@ -152,7 +151,7 @@ $stateProvider
   return {
     getPets: function(){
 
-      var promise = $http.get('/petsapi/pets')
+      var promise = $http.get('/pets')
       .then(function(response){
         return response
       });

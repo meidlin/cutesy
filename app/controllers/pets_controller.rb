@@ -4,9 +4,9 @@ class PetsController < ApplicationController
   # GET /pets
   # GET /pets.json
   def index
-    pets = Pet.all
+    @pets = Pet.all
     # @users= Pet.user.all
-    render json: pets, status: 200
+    render json: @pets, eacH_serializer: PetSerializer
   end
 
   # GET /pets/1
