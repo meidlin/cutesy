@@ -4,7 +4,7 @@ class Pet < ActiveRecord::Base
  
 
   has_attached_file :avatar, 
-              :storage => :s3,
+              #:storage => :s3,
               :bucket => 'cutesy',
               #:path => "/image/:id/:filename",
               :s3_credentials => {
