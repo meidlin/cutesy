@@ -7,10 +7,6 @@ class Pet < ActiveRecord::Base
               :storage => :s3,
               :bucket => 'cutesy',
               :path => "/image/:id/:filename",
-              :s3_credentials => {
-                :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-                :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-              },
               :styles => {
               :original => '1920x1680>',
               :small    => '100x100#',
