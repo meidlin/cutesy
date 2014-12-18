@@ -45,8 +45,8 @@
         <div class="profile-user col-md-6 col-sm-6" style="">
           <!-- Image and handle -->
           <div class="row-fluid"  style="height:200px; margin-bottom: 10px;">
-              <img src="<%=current_user.profile_image_url.gsub(/_normal/, '') %>" class="img-polaroid" style="height:150px; width:150px; float:left; "/>
-              <h2 class="col-md-6 col-xs-6 col-sm-6" style="position:relative; color: #4099FF;"><%= current_user.screen_name %></h2>
+              <img src="<%=current_user.profile_image_url.gsub(/_normal/, '') %>" class="img-polaroid" style="height:150px; width:150px; float:left; margin-left: 50px; margin-top: 30px; margin-right: 30px; "/>
+              <h2 class="col-md-6 col-xs-6 col-sm-6" style="position:relative; color: #4099FF; margin-right: 10px;"><%= current_user.screen_name %></h2>
               <!-- Need to add if current_user clause --> 
               <button type="button" class="btn btn-default"><%= link_to 'Edit Profile', edit_user_path(current_user.id) %> </button> 
           </div>
