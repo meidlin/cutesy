@@ -22,7 +22,7 @@ angular.module('spaApp', ['ui.router', 'templates'])
 
 $stateProvider
 
-     .state('feed', {
+     .state('/feed', {
           url: '/feed',
           templateUrl: 'feed.html',
           controller: 'feedController'
