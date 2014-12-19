@@ -17,13 +17,10 @@
             <tr>
                 <td style="font-size:30px; text-align:center;"><%= x %></td>
                 <td><%= image_tag p.avatar.url(:medium), :style =>'width: 75px; height: 75px;' if p.avatar %></td>
-                <td><%= p.name %> </td>
-                <td><%= p.user && p.user.screen_name ? p.user.screen_name : "" %></td>
+                <td><a href=<%= p.id %> ><%= p.name %> </a></td>
+                <td><%= p.user && p.user.screen_name ? p.user.screen_name : "" %></a></td>
                 <td>  </td>
-
             </tr>
-
-        
          <% end %>
       </tbody>
     </table>
