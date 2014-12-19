@@ -19,7 +19,7 @@ class PetsController < ApplicationController
   def leader
     @ratings = []
     Rating.find_by_sql("SELECT pet_id, AVG(CAST(rating AS DECIMAL)) AS bs FROM ratings GROUP BY pet_id ORDER BY 2 DESC LIMIT 25;").each do |rating|
-      @ratings << {pet: Pet.where(id: rating.pet_id).first, rating: rating.bs}
+    @ratings << {pet: Pet.where(id: rating.pet_id).first, rating: rating.bs}
     end
   end
 
