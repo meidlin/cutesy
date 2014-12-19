@@ -38,7 +38,7 @@
 		<!-- Grey background -->
         <div class="profile-user col-md-6 col-sm-6" style="">
         	<!-- Image and handle -->
-<% if current_user != nil %>
+<% if current_user.screen_name != nil %>
             <div class="row-fluid"  style="height:200px; margin-bottom: 10px;">
                 <% if current_user.profile_image_url %>
                   <img src="<%= current_user.profile_image_url.gsub(/_normal/, '') %>" class="img-polaroid" style="height:150px; width:150px; float:left; "/>
@@ -51,14 +51,14 @@
         <!-- Description Panel -->
         <div class="panel panel-default" style="">
 	        <div class="panel-body">
-				    <%= current_user && current_user.description ? current_user.description : "" %>
+				    <%= current_user.screen_name && current_user.description ? current_user.description : "" %>
 	        </div>
       	</div>
       <div id="pet" style="color:#4099FF;">
         <h2 style="text-align:center; ">Pets</h2>
       </div>
 
-<% if current_user %>  
+<% if current_user.screen_name != nil%>  
       <!-- Pet Panel -->
       <div class="panel panel-default">
         <div class="panel-body">
