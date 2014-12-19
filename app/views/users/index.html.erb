@@ -54,7 +54,13 @@
  <!--  Twitter log in -->
 <% else %>
 
-<%= link_to "Sign up with Twitter", "/auth/twitter", method: :get, :class => "btn btn-primary btn-lg btn-twitter" %>
+<div class="row-fluid"  style="height:200px; margin-bottom: 10px;">
+    <img src="../assets/profile.png" style="height:150px; width:150px; float:left; border: 1px solid grey; margin-left:10px;" />
+    <h2 class="col-md-6 col-xs-6 col-sm-6" style="position:relative; color: #4099FF;">@yourTwitterHandle </h2>
+  <h2 class="col-md-6 col-xs-6 col-sm-6" style="position:relative; color: #4099FF;"></h2>
+</div>
+
+<div style="text-align:center; margin-top:20px; margin-bottom:20px;"> <%= link_to "Sign up with Twitter! ", "/auth/twitter", method: :get, :class => "btn btn-primary btn-lg btn-twitter" %></div>
 
 <% end %>   
         <!-- Description Panel -->
