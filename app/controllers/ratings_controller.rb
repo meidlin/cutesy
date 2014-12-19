@@ -12,7 +12,7 @@ class RatingsController < ApplicationController
 
 	def create
 		rating_params = params["rating"]
-		Rating.create({user_id: rating_params["user_id"], pet_id: rating_params["pet_id"], rating: rating_params["rating"]})
+		Rating.create({user_id: current_user ? current_user.id : nil, pet_id: rating_params["pet_id"], rating: rating_params["rating"]})
 
 		# Find the next pup randomly
 		

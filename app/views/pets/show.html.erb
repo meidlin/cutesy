@@ -37,10 +37,20 @@
                       <p style="margin:0">My Ratings</p>
                     </div>
                     <div class="view">
-                      View Count: x
+                      View Count: <%= %>
                     </div>
                     <div class="rating">
-                      Average Rating: y
+                      <!-- for pet id give rating -->
+                      <!-- loop this fucker on pet id -->
+                      <%#= @pet.id %>
+                      <% @ratings.each do |r| %>
+                          <%#= r.pet_id %> 
+                          <% if r.pet_id == @pet.id %>
+                            Average Rating: <%= r.bs.to_s %>
+                          <% end %>
+                      <% end %>
+
+
                     </div>
                       
                     

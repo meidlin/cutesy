@@ -108,7 +108,6 @@ $stateProvider
 
     // grab value of element
     rating = input.value;
-    console.log(rating);
 
     // instantiate empty object
     var ratingObject  = {};
@@ -127,9 +126,11 @@ $stateProvider
     // AJAX call
     $.post("/ratings", ratingObject)
       .done(function(data) {
-        alert(data);
-      });
-  }
+        console.log(data);
+      }
+    );
+  };
+
 }])
 
 .service('petsapi', ['$http', function($http) {

@@ -12,6 +12,8 @@ class PetsController < ApplicationController
   # GET /pets/1
   # GET /pets/1.json
   def show
+    # @pet = Pet.find(params[:id])
+    @ratings = Rating.find_by_sql("SELECT pet_id, AVG(CAST(rating AS DECIMAL)) AS bs FROM ratings GROUP BY pet_id;")
   end
 
   def leader
