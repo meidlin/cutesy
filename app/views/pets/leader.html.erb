@@ -21,7 +21,7 @@
                 <td><a href=<%= r[:pet].id %> ><%= r[:pet].name %> </a></td>
                 <td><%= r[:pet].user && r[:pet].user.screen_name ? r[:pet].user.screen_name : "" %></a></td>
                 <td>
-                    <%= r[:rating].to_s %>
+                    <%= number_with_precision(r[:rating].to_s, precision: 2)  %>
                  </td>
             </tr>
          <% end %>
