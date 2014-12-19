@@ -42,7 +42,7 @@
                       <% @ratings.each do |r| %>
                           <%#= r.pet_id %> 
                           <% if r.pet_id == @pet.id %>
-                            Average Rating: <%= r.bs.to_s %>
+                            Average Rating: <%= number_with_precision(r.bs.to_s, precision: 2) %> 
                           <% end %>
                       <% end %>
                     </div>
