@@ -17,4 +17,6 @@ class PetSerializer < ActiveModel::Serializer
   	if object.sex == 1 then "M" else "F" end
   end
 
+
+
 end
