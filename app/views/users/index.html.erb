@@ -38,6 +38,7 @@
 		<!-- Grey background -->
         <div class="profile-user col-md-6 col-sm-6" style="">
         	<!-- Image and handle -->
+
 <% if current_user.screen_name != nil %>
             <div class="row-fluid"  style="height:200px; margin-bottom: 10px;">
                 <% if current_user.profile_image_url %>
@@ -47,7 +48,13 @@
                 <!-- Need to add if current_user clause --> 
                 <button type="button" class="btn btn-default"><%= link_to 'Edit Profile', edit_user_path(current_user.id) %> </button> 
             </div>
-<% end %>    
+
+ <!--  Twitter log in -->
+<% else %>
+
+<%= link_to "Sign up with Twitter", "/auth/twitter", method: :get, :class => "btn btn-primary btn-lg btn-twitter" %>
+
+<% end %>   
         <!-- Description Panel -->
         <div class="panel panel-default" style="">
 	        <div class="panel-body">
