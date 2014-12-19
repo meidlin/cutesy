@@ -1,7 +1,5 @@
 <style> 
-
 /*User Profile*/
-    
 .profile-user {
   padding: 10px 5px;
   background: #eeeeee url("//d36xtkk24g8jdx.cloudfront.net/bluebar/dd6cb37/images/bg/white-gradient-200px.png") repeat-x 50% 50%;
@@ -11,13 +9,11 @@
 }
 
 /*User Pets*/
-
 .pet{
   background-size:cover;
   background-repeat:no-repeat;
   background-position:center;
 }
-
 .petname{
   text-align:center;
   background-color: rgba(0,0,0,0.4);
@@ -30,13 +26,11 @@
   color:white;
   margin-top:100px;
 }
-
 .addpetbutton{
   width:30%;
   display:block;
   margin: auto;
 }
-
 </style>   
 <div class="col-md-3 col-sm-3 col-xs-0"></div>
 <!-- Center Container -->
@@ -44,14 +38,14 @@
 		<!-- Grey background -->
         <div class="profile-user col-md-6 col-sm-6" style="">
         	<!-- Image and handle -->
-          <% if current_user %>
+<% if current_user %>
             <div class="row-fluid"  style="height:200px; margin-bottom: 10px;">
                   <img src="<%=current_user.profile_image_url.gsub(/_normal/, '') %>" class="img-polaroid" style="height:150px; width:150px; float:left; "/>
                 <h2 class="col-md-6 col-xs-6 col-sm-6" style="position:relative; color: #4099FF;"><%= current_user.screen_name %></h2>
                 <!-- Need to add if current_user clause --> 
                 <button type="button" class="btn btn-default"><%= link_to 'Edit Profile', edit_user_path(current_user.id) %> </button> 
             </div>
-          <% end %>
+<% end %>    
         <!-- Description Panel -->
         <div class="panel panel-default" style="">
 	        <div class="panel-body">
@@ -62,6 +56,7 @@
         <h2 style="text-align:center; ">Pets</h2>
       </div>
 
+<% if current_user %>  
       <!-- Pet Panel -->
       <div class="panel panel-default">
         <div class="panel-body">
@@ -82,7 +77,7 @@
           </div> <% end %>
         </div>
       </div>
-
+<% end %>
         <!-- add pet -->
         <div class="panel panel-default">
           <div class="petname" style="">
