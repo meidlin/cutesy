@@ -89,41 +89,23 @@ $stateProvider
   $scope.pets = {};
 
 // function for proceeding through the next pet object in array
-  $scope.next = function(){
-    if ($scope.pets_index >= $scope.pets.length -1) {
-      $scope.pets_index = 0;
-    }
-    else {
-      $scope.pets_index ++;
-    }
-  };
+  
 
   $scope.choose = function(pets) {
     $scope.pets = pets;
   };
 
   // function for sending rating to pet object on click
-  $scope.sendRating = function(){
-    
-    // grab element and assign to variable input
-    var input = document.getElementsByName('ratingsinput')[0];
-
-    // grab value of element
-    rating = input.value;
-
+  $scope.sendRating = function(isSkip){
     // instantiate empty object
-    var ratingObject  = {};
-
-    // add empty object property to ^ who has a value of an empty object
-    // ratingObject = {rating: {} }
-    ratingObject.rating = {};
-
+    var ratingObject = {rating: {}};
     // ratingObject = { rating: {user_id: $scope.pets[$scope.pets_index].user_id}}
     ratingObject.rating.user_id = $scope.pets[$scope.pets_index].user_id;
-
     // ratingObject = { rating: {pet_id: $scope.pets[$scope.pets_index].id}}
     ratingObject.rating.pet_id = $scope.pets[$scope.pets_index].id;
-    ratingObject.rating.rating = rating;
+    if(!isSkip)
+      // Grab the rating value from the star thing
+      ratingObject.rating.rating = document.getElementsByName('ratingsinput')[0].value;
 
     // AJAX call
     $.post("/ratings", ratingObject)
@@ -131,8 +113,14 @@ $stateProvider
         console.log(data);
       }
     );
+  // This is equivilant the next() function
+    if ($scope.pets_index >= $scope.pets.length -1) {
+      $scope.pets_index = 0;
+    }
+    else {
+      $scope.pets_index ++;
+    }
   };
-
 }])
 
 .service('petsapi', ['$http', function($http) {

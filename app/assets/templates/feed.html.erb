@@ -31,32 +31,24 @@
                 <div class="panel panel-default">
                   <div class="panel-body" style="padding-top:0px;">
                     <div class="name col-md-12" style="font-size:36px; text-align:center; color:#FFD700;">
-
-
                       <input name="ratingsinput" id="input-id" type="number" class="rating" min=0 max=5 step=1 data-size="xs" data-show-clear="false" data-show-caption="false" >
-
                     </div>
-                    <!-- Actual stars -->
-                   <!--    <div style="width: 200px; margin: 0px auto; ">
-                       <big> <span class="star">&#9734;<span class="star">&#9734;<span class="star">&#9734;<span class="star">&#9734;<span class="star">&#9734;</span></span></span></span></span></big>
-                      </div>
-                  </div>
-                </div> -->
                 <!-- Submit Button  -->
                 <div class="panel panel-default" style="margin-bottom:0px">
                   <div class="panel-body" style="padding:0px;">
                     <!-- Skip Button -->
-                    <button ng-click="next()" type="button" class="btn btn-danger btn-lg col-md-6 col-sm-6 col-xs-6" style="">Skip</button>
+                    <button ng-click="sendRating(true);" type="button" class="btn btn-danger btn-lg col-md-6 col-sm-6 col-xs-6" style="">Skip</button>
                     <!-- Rate button -->
-                    <button ng-click="sendRating(); next() " type="button" class="btn btn-success btn-lg col-md-6 col-sm-6 col-xs-6" id="ratebutton">Rate!</button>
+                    <button ng-click="sendRating(false);" type="button" class="btn btn-success btn-lg col-md-6 col-sm-6 col-xs-6" id="ratebutton">Rate!</button>
                   </div>
                 </div>
-
-              <div class="col-md-3 col-sm-3 col-xs-0"></div>
-        </div>
-    </div>
+                </div>
+                </div>
+              
+                    
   </div>
 </div>
+<div class="col-md-3 col-sm-3 col-xs-0"></div>
 
 <script>
 $(function(){

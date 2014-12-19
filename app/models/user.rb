@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 	has_many :pets
+	has_many :ratings
 	
 	def self.from_omniauth(auth)
     	user = where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
