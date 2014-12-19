@@ -96,10 +96,12 @@
       </div>
 <% end %>
         <!-- add pet -->
+        <div id="loginNotification" class="alert alert-success" role="alert" style="display: none">"Hey! Don't let your pet be alone, sign up or log in with your Twitter account, so you can upload your pet!"</div>
         <div class="panel panel-default">
           <div class="petname" style="">
                 <h3 style="margin:0;">add pet</h3>
           </div>
+
           <div class="panel-body" style="padding:0;">
             <% options = {:class => 'addpetbutton'}  # We always have this class ...
               options = options.merge({onclick: "return pleaseLogin();"}) if current_user.screen_name.blank?   # ... but only add this if the user is a nobody %>
@@ -107,7 +109,7 @@
           </div>
         </div>
 
-        <div id="loginNotification" class="alert alert-success" role="alert" style="display: none">"Hey! Don't let your pet be alone, sign up or log in with your Twitter account, so you can upload your pet!"</div>
+        
 
       </div>
   </div>
