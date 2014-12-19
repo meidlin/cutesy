@@ -16,11 +16,11 @@
                               <div class="name col-md-12" style="font-size:24px; text-align:center;">
                                 <p><%= @pet.age %>,
                                     <% if @pet.sex == 2 %>
-                                        F
+                                        Female
                                     <% else %>
-                                        M
-                                    <% end %>
-                                  , <%= (@pet.breed ? @pet.breed.name : "") %> </p>
+                                        Male
+                                    <% end %>,
+                                   <%= (@pet.breed ? @pet.breed.name : "") %> </p>
                               </div>
                             </div> 
                         </div>
@@ -34,12 +34,10 @@
                 <div class="panel panel-default">
                   <div class="panel-body" style="padding-top:0px;">
                     <div class="name col-md-12" style="font-size:36px; text-align:center; color:#FFD700;">
-                      <p style="margin:0">My Ratings</p>
                     </div>
-                    <div class="view" style="font-size: 20px;">
-                      View Count: <%= %>
-                    </div>
-                    <div class="rating" style="font-size: 20px;">
+                    <div class="view" style="font-size: 30px; margin-bottom: 10px;">
+                    <!-- <div class="rating" style="font-size: 30px; margin-bottom: 10px;"> -->
+                      View Count: <%= %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                       
                       <% @ratings.each do |r| %>
                           <%#= r.pet_id %> 
@@ -47,6 +45,7 @@
                             Average Rating: <%= number_with_precision(r.bs.to_s, precision: 2) %>
                           <% end %>
                       <% end %>
+                    </div>
 
 
                     </div>
