@@ -6,7 +6,7 @@ class PetsController < ApplicationController
   def index
     @pets = Pet.all
     # @users= Pet.user.all
-    render json: @pets, eacH_serializer: PetSerializer
+    render json: @pets, each_serializer: PetSerializer
   end
 
   # GET /pets/1
@@ -17,7 +17,10 @@ class PetsController < ApplicationController
   end
 
   def leader
-    @pets = Pet.all
+    @ratings = []
+    Rating.find_by_sql("SELECT pet_id, AVG(CAST(rating AS DECIMAL)) AS bs FROM ratings GROUP BY pet_id ORDER BY 2 DESC LIMIT 25;").each do |rating|
+      @ratings << {pet: Pet.where(id: rating.pet_id).first, rating: rating.bs}
+    end
   end
 
   def post

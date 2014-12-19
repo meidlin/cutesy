@@ -1,5 +1,5 @@
-<div class="col-md-3 col-sm-3"></div>
-    <div class="container col-md-6">
+<div class="col-md-3 col-sm-3 col-xs-0"></div>
+    <div class="container col-md-6 col-sm-6 ">
     <table class="table table-striped ">
     	<thead>
             <tr>
@@ -7,23 +7,28 @@
                 <th>Pet</th>
                 <th>Name</th>
                 <th>Owner</th>
-                <th>Average Rating</th>
+                <th>Avg Rating</th>
             </tr>
         </thead>
       <tbody>
         <% x=0 %>
-        <% @pets.each do |p|
-            x+=1 %> 
+        <% @ratings.each do |r|
+            x+=1 %>
+
             <tr>
                 <td style="font-size:30px; text-align:center;"><%= x %></td>
-                <td><%= image_tag p.avatar.url(:medium), :style =>'width: 75px; height: 75px;' if p.avatar %></td>
-                <td><a href=<%= p.id %> ><%= p.name %> </a></td>
-                <td><%= p.user && p.user.screen_name ? p.user.screen_name : "" %></a></td>
-                <td>  </td>
+                <td><%= image_tag r[:pet].avatar.url(:medium), :style =>'width: 75px; height: 75px;' if r[:pet].avatar %></td>
+                <td><a href=<%= r[:pet].id %> ><%= r[:pet].name %> </a></td>
+                <td><%= r[:pet].user && r[:pet].user.screen_name ? r[:pet].user.screen_name : "" %></a></td>
+                <td>
+                    <%= r[:rating].to_s %>
+                 </td>
             </tr>
          <% end %>
       </tbody>
     </table>
     </div>
 </div>
-<div class="col-md-3 col-sm-3"></div>
+<div class="col-md-3 col-sm-3 col-xs-0"></div>
+
+                    
