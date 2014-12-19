@@ -38,7 +38,7 @@ class SessionsController < ApplicationController
 		end
     	session[:user_id] = user.id
     	# This is only active while we're getting beta users
-    	redirect_to betasignup2_path, :notice => "Signed in!"
+    	redirect_to users_path, :notice => "Signed in!"
 #    	redirect_to root_path, :notice => "Signed in!"
 	end 
 
