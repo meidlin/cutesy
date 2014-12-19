@@ -4,8 +4,7 @@ class UsersController < ApplicationController
 
 	def index
 		@users = User.all
-		@pets = @users.first.pets
-
+		@pets = current_user.pets
 	end
 
 	def show
