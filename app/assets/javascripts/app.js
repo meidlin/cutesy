@@ -74,7 +74,6 @@ $stateProvider
 
 // making any change so it will push
 
-
 .controller('feedController', ['$scope', 'petsapi', function($scope, petsapi){
   petsapi.getPets()
   .then(function(data){

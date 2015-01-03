@@ -85,10 +85,9 @@
             <div class="petratingandviews">
               <!-- <%= image_tag p.avatar.url(:medium) %> -->
               <div class="petrating">
-              
               </div>
               <div class="petviews">
-                .
+                <%= @viewcount.to_s %>
               </div>
             </div>
           </div> <% end %>
@@ -123,4 +122,5 @@
     setTimeout(function(){location.href="/auth/twitter";}, 5000);
     return false;
   }
+  mixpanel.track("Profile View");
 </script>

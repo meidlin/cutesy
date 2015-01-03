@@ -7,6 +7,7 @@ class PetsController < ApplicationController
     @pets = Pet.all
     # @users= Pet.user.all
     render json: @pets, each_serializer: PetSerializer
+   
   end
 
   # GET /pets/1
